@@ -18,8 +18,14 @@
     text-transform: uppercase;
   }
   .collapsing {
-    transition: none;
+    background-color: #0b2d55;
+    background-size: 200vw;
+    display: flex !important;
     height: 80vh !important;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: none;
   }
   .collapse:not(.show).navbar-collapse {
     background-color: #0b2d55;
@@ -36,7 +42,7 @@
   .collapse.show.navbar-collapse {
     background-color: #0b2d55;
     background-size: 200vw;
-    display: flex;
+    display: flex !important;
     height: 80vh;
     justify-content: center;
     overflow: hidden;

@@ -59,8 +59,9 @@ class HomePage extends React.Component {
     clearInterval(this.interval)
   }
   handleScroll = e => {
-    console.log(Object.assign({}, e))
-    e.persist()
+    // console.log(Object.assign({}, e))
+    // e.persist()
+    
     this.setState({
       didScroll: this.state.didScroll + e.deltaY,
     })
