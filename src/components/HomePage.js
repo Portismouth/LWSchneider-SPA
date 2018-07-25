@@ -22,6 +22,8 @@ class HomePage extends React.Component {
     isMobile: false,
     lastScrollPos: 0,
     panelIndex: 0,
+    didScroll: 0,
+    throttleSwitch: 0,
     touchX: null,
     touchY: null
   };
@@ -45,12 +47,13 @@ class HomePage extends React.Component {
       this.state.buttonText = ("Scroll")
     }
     this.interval = setInterval(() => {
+      if (this.state.throttleSwitch > 0) this.setState({throttleSwitch: this.state.throttleSwitch - 1})
       if (this.state.didScroll !== 0) {
         this.handleChangePanels(this.state.didScroll)
         this.handleRotateWindstop(this.state.didScroll)
         this.setState({didScroll: 0})
       }
-    }, 500)
+    }, 100)
     window.innerWidth < 992 && this.setState({
       isMobile: true
     });
@@ -60,11 +63,7 @@ class HomePage extends React.Component {
   }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
-    // e.persist()
-    
-    this.setState({
-      didScroll: this.state.didScroll + e.deltaY,
-    })
+    if (this.state.didScroll === 0 && this.state.throttleSwitch === 0) this.setState({didScroll: e.deltaY})
   }
   handleTouchStart = e => {
     // console.log('touch start!', Object.assign({}, e))
@@ -91,11 +90,13 @@ class HomePage extends React.Component {
   handleChangePanels = direction => {
     if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {
       this.setState({
-        panelIndex: this.state.panelIndex + 1
+        panelIndex: this.state.panelIndex + 1,
+        throttleSwitch: 12
       });
     } else if (direction < 0 && this.state.panelIndex > 0) {
       this.setState({
-        panelIndex: this.state.panelIndex - 1
+        panelIndex: this.state.panelIndex - 1,
+        throttleSwitch: 12
       })
     }
   };

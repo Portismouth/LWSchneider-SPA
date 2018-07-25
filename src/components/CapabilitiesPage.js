@@ -20,6 +20,7 @@ class CapabilitiesPage extends React.Component {
     activePartsPanel: 0,
     activeButton: 0,
     didScroll: 0,
+    throttleSwitch: 0,
     touchX: null,
     touchY: null
   };
@@ -40,19 +41,18 @@ class CapabilitiesPage extends React.Component {
       );
     this.props.dispatch(scaleWindstop());
     this.interval = setInterval(() => {
+      if (this.state.throttleSwitch > 0) this.setState({throttleSwitch: this.state.throttleSwitch - 1})      
       if (this.state.didScroll !== 0) {
         this.handleChangePanels(this.state.didScroll)
         this.setState({didScroll: 0})
       }
-    }, 500)
+    }, 100)
   }
   componentWillUnmount() {
     clearInterval(this.interval)
   }
   handleScroll = e => {
-    this.setState({
-      didScroll: this.state.didScroll + e.deltaY
-    })
+    if (this.state.didScroll === 0 && this.state.throttleSwitch === 0) this.setState({didScroll: e.deltaY})
   }
   handleTouchStart = e => {
     this.setState({
@@ -73,11 +73,13 @@ class CapabilitiesPage extends React.Component {
     // console.log(direction)
     if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {
       this.setState({
-        panelIndex: this.state.panelIndex + 1
+        panelIndex: this.state.panelIndex + 1,
+        throttleSwitch: 12
       });
     } else if (direction < 0 && this.state.panelIndex > 0) {
       this.setState({
-        panelIndex: this.state.panelIndex - 1
+        panelIndex: this.state.panelIndex - 1,
+        throttleSwitch: 12
       })
     }
   };
