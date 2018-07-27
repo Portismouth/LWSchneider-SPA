@@ -125,17 +125,24 @@ button:focus {
     letter-spacing: .5px;
     padding: 0;
   }
+  // .scroll-button-up {
+  //   top: unset;
+  //   bottom: 15%;
+  // }
+  .scroll-button {
+    left: unset;
+    bottom: 4%;
+    right: 4%
+  }
   .scroll-button-up {
     top: unset;
+    left: unset;
     bottom: 15%;
+    right: 4%
+  }
+  .scroll-text {
+    display: none
   }
 }
 @media (max-width: 576px) {
-  .scroll-button {
-    bottom: 5%;
-  }
-  .scroll-text {
-    font-size: 14px;
-    line-height: 1.2vmax;
-  }
 }
