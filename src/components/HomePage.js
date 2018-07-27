@@ -12,6 +12,7 @@ import PanelTitle from './PanelTitle';
 import ScrollButton from './ScrollButton';
 import HomePageCarousel from './HomePageCarousel';
 import { revertWindstop, rotateOnce } from '../actions/windstop';
+import { setPanel } from '../actions/panel';
 
 class HomePage extends React.Component {
   state = {
@@ -21,12 +22,14 @@ class HomePage extends React.Component {
     isLoaded: false,
     isMobile: false,
     lastScrollPos: 0,
-    panelIndex: 0,
     didScroll: 0,
     throttleSwitch: 0,
     touchX: null,
     touchY: null
   };
+  componentWillMount() {
+    this.props.dispatch(setPanel(0))
+  }
   componentDidMount() {
     fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/120')
       .then(res => res.json())
@@ -43,8 +46,8 @@ class HomePage extends React.Component {
         }
       );
     this.props.dispatch(revertWindstop());
-    if (this.state.panelIndex === 0) {
-      this.state.buttonText = ("Scroll")
+    if (this.props.panel.index === 0) {
+      this.setState({buttonText: "Scroll"})
     }
     this.interval = setInterval(() => {
       if (this.state.throttleSwitch > 0) this.setState({throttleSwitch: this.state.throttleSwitch - 1})
@@ -114,16 +117,12 @@ class HomePage extends React.Component {
     })
   }
   handleChangePanels = direction => {
-    if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {
-      this.setState({
-        panelIndex: this.state.panelIndex + 1,
-        throttleSwitch: 12
-      });
-    } else if (direction < 0 && this.state.panelIndex > 0) {
-      this.setState({
-        panelIndex: this.state.panelIndex - 1,
-        throttleSwitch: 12
-      })
+    if (direction > 0 && this.props.panel.index < this.state.assets.length - 1) {
+      this.props.dispatch(setPanel(this.props.panel.index + 1));
+      this.setState({throttleSwitch: 12});
+    } else if (direction < 0 && this.props.panel.index > 0) {
+      this.props.dispatch(setPanel(this.props.panel.index - 1));
+      this.setState({throttleSwitch: 12})
     }
   };
   handleRotateWindstop = direction => {
@@ -135,8 +134,10 @@ class HomePage extends React.Component {
     })
   }
   render() {
+    // console.log('props', this.props)
     const assets = this.state.assets;
-    const panelIndex = this.state.panelIndex;
+    // const panelIndex = this.state.panelIndex;
+    const panelIndex = this.props.panel.index;
     const panels = assets.map((asset, i) => (
       <Panel
         className={
@@ -208,7 +209,8 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  windstop: state.windstop
+  windstop: state.windstop,
+  panel: state.panel
 });
 
 export default connect(mapStateToProps)(HomePage);

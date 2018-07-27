@@ -12,10 +12,11 @@ import AppRouter from './routers/AppRouter';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import panel from './reducers/panel';
 import windstop from './reducers/windstop'; 
 
 const allReducers = combineReducers({
-  windstop: windstop
+  windstop, panel
 })
 
 const store = createStore(
