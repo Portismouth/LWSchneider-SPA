@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import { Collapse, Nav, Navbar, NavItem, NavLink as Link, NavbarBrand, NavbarToggler } from 'reactstrap';
-import WindStop from './WindStop';
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -21,7 +20,7 @@ export default class Navigation extends Component {
   }
   render() {
     console.log(Collapse.prototype);
-    return <Navbar light expand="lg">
+    return <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
         <NavbarToggler 
           onClick={this.toggle} 
           style={{ 

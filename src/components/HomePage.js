@@ -1,9 +1,9 @@
-import _ from 'lodash';
 import React from 'react';
 
 import { connect } from 'react-redux';
 
 //Component Imports
+import Logo from './Logo';
 import Panel from './Panel';
 import PanelContact from './PanelContact';
 import PanelLink from './PanelLink';
@@ -134,6 +134,10 @@ class HomePage extends React.Component {
       buttonText: text
     })
   }
+  handleLogo = e => {
+    this.setState({panelIndex: 0})
+    this.props.dispatch(revertWindstop())
+  }
   render() {
     const assets = this.state.assets;
     const panelIndex = this.state.panelIndex;
@@ -182,6 +186,7 @@ class HomePage extends React.Component {
         onTouchStart={this.handleTouchStart}
         onTouchEnd={this.handleTouchEnd}
       >
+        <Logo customHandler={this.handleLogo} imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
         {(panelIndex !== 0) ?
           <ScrollButton
             arrowUp={true}

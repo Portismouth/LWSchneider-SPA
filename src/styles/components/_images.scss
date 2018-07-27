@@ -110,6 +110,11 @@
   max-width: 336px;
   width: 20vw;
 }
+#logo.home {
+  display: block;
+  cursor: pointer;
+  position: fixed
+}
 @media (max-width: 991px) {
   #logo {
     height: 100px;
