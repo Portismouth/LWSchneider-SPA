@@ -129,12 +129,27 @@ class HomePage extends React.Component {
           ? { backgroundImage: `url(${asset.panel_image_mobile})` }
           : { backgroundImage: `url(${asset.panel_image})` }
         }
-      >
-        <PanelTitle 
-          colSpan={i === 0 ? 5 : i === 3 ? 6 : 4}
-          panelTitle={asset.panel_title}
-          titleId={`homePanel${i}`}
-        />
+      > 
+        {i === 0 ? (
+          <div>
+            <PanelTitle 
+              colSpan={i === 0 ? 10 : i === 3 ? 6 : 4}
+              panelTitle={asset.panel_title.split('.')[0] + '.'}
+              titleId={`homePanel${i}`}
+            />
+            <PanelTitle
+              colSpan={i === 0 ? 10 : i === 3 ? 6 : 4}
+              panelTitle={asset.panel_title.split('.')[1] + '.'}
+              titleId={`homePanel${i}`}
+            />
+          </div>
+        ) : 
+          <PanelTitle 
+            colSpan={i === 0 ? 5 : i === 3 ? 6 : 4}
+            panelTitle={asset.panel_title}
+            titleId={`homePanel${i}`}
+          />
+        }
         {asset.carousel_images && (
           <HomePageCarousel images={asset.carousel_images} />
         )}

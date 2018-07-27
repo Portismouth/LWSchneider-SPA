@@ -38,8 +38,8 @@ class Navigation extends Component {
           </div>
           :
           <NavLink 
-            to="/"
             className="d-lg-none"
+            to="/"
             onClick={e => {
               if (this.state.isOpen) this.toggle(e)
               this.props.dispatch(revertWindstop())

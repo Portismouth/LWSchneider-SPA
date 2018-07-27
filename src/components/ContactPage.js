@@ -53,7 +53,7 @@ class ContactPage extends Component {
             panelText={this.state.panelText}
           />
           <PanelContact />
-          <div className="row no-gutters justify-content-center mt-2 mt-lg-3">
+          <div className="row no-gutters justify-content-center mt-4 mt-lg-3">
             <p className="panel-text text-center">Want to join our proud team of collaborators?</p>
           </div>
           <div className="row no-gutters justify-content-center">

@@ -1,3 +1,25 @@
+@media (max-width: 576px) {
+  nav a {
+    color: $white !important;
+    font-family: $Metropolis;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 54px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .navbar-toggler {
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+  }
+}
 @media (max-width: 991.99px) {
   .navbar {
     padding-left: 0;
@@ -12,12 +34,23 @@
   nav a, nav .nav-link {
     color: $white !important;
     font-family: $Metropolis;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 600;
-    line-height: 54px;
+    line-height: 65px;
     text-align: center;
     text-transform: uppercase;
     cursor: pointer
+  }
+  .navbar-toggler {
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
   }
   .collapsing {
     background-color: $background-color;
@@ -50,6 +83,28 @@
         height: 225vw !important;
       }
     }
+  }
+}
+@media (max-width: 576px) {
+  nav a {
+    color: $white !important;
+    font-family: $Metropolis;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 54px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .navbar-toggler {
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
   }
 }
 @media (min-width: 992px) {
@@ -97,17 +152,7 @@
   background-image: none;
   display: none;
 }
-.navbar-toggler {
-  border: none;
-  height: 30px;
-  width: 30px;
-  margin-left: auto;
-  margin-right: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 999;
-}
+
 .navbar-brand {
   margin: 0;
 }
