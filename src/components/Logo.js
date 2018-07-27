@@ -5,6 +5,8 @@ import { revertWindstop } from '../actions/windstop';
 
 const Logo = props => {
   return (props.customHandler) ?
+  // This is here so you can implement custom logic for what clicking the logo does on different pages
+  // Specifically, when you are on the home page it goes to top panel instead of being a link
   <div>
     <style dangerouslySetInnerHTML={{__html: '#logo {display: none}'}} />
     <img id="logo" className="home" onClick={props.customHandler} src={props.imageUrl} alt="logo" />
