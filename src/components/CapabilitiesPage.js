@@ -14,11 +14,11 @@ import HandgunPartsPanelMobile from './HandgunPartsPanelMobile';
 import RiflePartsPanel from './RiflePartsPanel';
 import RiflePartsPanelMobile from './RiflePartsPanelMobile';
 import ScrollButton from './ScrollButton';
+import { setPanel } from '../actions/panel';
 
 class CapabilitiesPage extends React.Component {
   state = {
     assets: [],
-    panelIndex: 0,
     activePartsPanel: 0,
     activeButton: 0,
     didScroll: 0,
@@ -26,6 +26,9 @@ class CapabilitiesPage extends React.Component {
     touchX: null,
     touchY: null
   };
+  componentWillMount() {
+    this.props.dispatch(setPanel(0))
+  }
   componentDidMount() {
     fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/133')
       .then(res => res.json())
@@ -72,14 +75,14 @@ class CapabilitiesPage extends React.Component {
     this.setState({touchX: null, touchY: null})
   }
   handleChangePanels = direction => {
-    if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {
+    if (direction > 0 && this.props.panel.index < this.state.assets.length - 1) {
+      this.props.dispatch(setPanel(this.props.panel.index + 1));
       this.setState({
-        panelIndex: this.state.panelIndex + 1,
         throttleSwitch: 12
       });
-    } else if (direction < 0 && this.state.panelIndex > 0) {
+    } else if (direction < 0 && this.props.panel.index > 0) {
+      this.props.dispatch(setPanel(this.props.panel.index - 1));
       this.setState({
-        panelIndex: this.state.panelIndex - 1,
         throttleSwitch: 12
       })
     }
@@ -97,7 +100,7 @@ class CapabilitiesPage extends React.Component {
   };
   render() {
     const assets = this.state.assets;
-    const panelIndex = this.state.panelIndex;
+    const panelIndex = this.props.panel.index;
     const panels = assets.map((asset, i) => (
       <Panel
         className={panelIndex == i ? 'panel active' : 'panel inactive'}
@@ -214,7 +217,8 @@ class CapabilitiesPage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  windstop: state.windstop
+  windstop: state.windstop,
+  panel: state.panel
 });
 
 export default connect(mapStateToProps)(CapabilitiesPage);

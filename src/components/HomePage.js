@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Component Imports
-import Logo from './Logo';
 import Panel from './Panel';
 import PanelContact from './PanelContact';
 import PanelLink from './PanelLink';

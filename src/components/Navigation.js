@@ -1,9 +1,12 @@
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Collapse, Nav, Navbar, NavItem, NavLink as Link, NavbarBrand, NavbarToggler } from 'reactstrap';
+import { revertWindstop } from '../actions/windstop';
+import { setPanel } from '../actions/panel';
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,19 +22,32 @@ export default class Navigation extends Component {
     }
   }
   render() {
-    console.log(Collapse.prototype);
+    // console.log(Collapse.prototype);
     return (
       <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
-        <NavbarBrand
-          className="d-lg-none"
-        >
+        {(window.location.pathname == '/') ?
+          <div
+            className="d-lg-none"
+            onClick={e => {
+              if (this.state.isOpen) this.toggle(e)
+              this.props.dispatch(revertWindstop())
+              this.props.dispatch(setPanel(0))
+            }}
+          >
+            <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
+          </div>
+          :
           <NavLink 
             to="/"
-            onClick={this.state.isOpen && this.toggle}
+            className="d-lg-none"
+            onClick={e => {
+              if (this.state.isOpen) this.toggle(e)
+              this.props.dispatch(revertWindstop())
+            }}
           >
             <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
           </NavLink>
-        </NavbarBrand>
+        }
         <NavbarToggler 
           onClick={this.toggle} 
           style={{ 
@@ -50,44 +66,92 @@ export default class Navigation extends Component {
           </div>
           <Nav navbar>
             <NavItem>
-              <NavLink 
-                to="/capabilities" 
-                className="nav-link" 
-                activeClassName="is-active" 
-                onClick={this.toggle}
-              >
-                Capabilities
-              </NavLink>
+              {(window.location.pathname.search('/capabilities') > -1) ?
+                <div
+                  className="nav-link is-active"
+                  onClick={e => {
+                    this.toggle(e)
+                    this.props.dispatch(setPanel(0))
+                  }}
+                >
+                  Capabilities
+                </div>
+                :
+                <NavLink 
+                  to="/capabilities" 
+                  className="nav-link" 
+                  // activeClassName="is-active" 
+                  onClick={this.toggle}
+                >
+                  Capabilities
+                </NavLink>
+              }
             </NavItem>
             <NavItem>
-              <NavLink 
-                to="/values" 
-                className="nav-link" 
-                activeClassName="is-active" 
-                onClick={this.toggle}
-              >
-                Values
-              </NavLink>
+              {(window.location.pathname.search('/values') > -1) ?
+                <div
+                  className="nav-link is-active"
+                  onClick={e => {
+                    this.toggle(e)
+                    this.props.dispatch(setPanel(0))
+                  }}
+                >
+                  Values
+                </div>
+                :
+                <NavLink 
+                  to="/values" 
+                  className="nav-link" 
+                  // activeClassName="is-active" 
+                  onClick={this.toggle}
+                >
+                  Values
+                </NavLink>
+              }
             </NavItem>
             <NavItem>
-              <NavLink 
-                to="/about" 
-                className="nav-link" 
-                activeClassName="is-active" 
-                onClick={this.toggle}
-              >
-                About
-              </NavLink>
+              {(window.location.pathname.search('/about') > -1) ?
+                <div
+                  className="nav-link is-active"
+                  onClick={e => {
+                    this.toggle(e)
+                    this.props.dispatch(setPanel(0))
+                  }}
+                >
+                  About
+                </div>
+                :
+                <NavLink 
+                  to="/about" 
+                  className="nav-link" 
+                  // activeClassName="is-active" 
+                  onClick={this.toggle}
+                >
+                  About
+                </NavLink>
+              }
             </NavItem>
             <NavItem>
-              <NavLink 
-                to="/contact" 
-                className="nav-link" 
-                activeClassName="is-active" 
-                onClick={this.toggle}
-              >
-                Contact
-              </NavLink>
+              {(window.location.pathname.search('/contact') > -1) ?
+                <div
+                  className="nav-link is-active"
+                  onClick={e => {
+                    this.toggle(e)
+                    this.props.dispatch(setPanel(0))
+                  }}
+                >
+                  Contact
+                </div>
+                :
+                <NavLink 
+                  to="/contact" 
+                  className="nav-link" 
+                  // activeClassName="is-active" 
+                  onClick={this.toggle}
+                >
+                  Contact
+                </NavLink>
+              }
             </NavItem>
           </Nav>
         </Collapse>
@@ -95,3 +159,10 @@ export default class Navigation extends Component {
     )
   }
 }
+
+// Only mapping this to force component to rerender appropriately
+const mapStateToProps = (state) => ({
+  panel: state.panel
+});
+
+export default connect(mapStateToProps)(Navigation);

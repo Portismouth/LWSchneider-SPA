@@ -9,7 +9,7 @@
     height: 100%;
     padding: 0;
   }
-  nav a {
+  nav a, nav .nav-link {
     color: $white !important;
     font-family: $Metropolis;
     font-size: 24px;
@@ -17,6 +17,7 @@
     line-height: 54px;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer
   }
   .collapsing {
     background-color: $background-color;
@@ -63,7 +64,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  nav a {
+  nav a, nav .nav-link {
     color: $white !important;
     font-family: 'Gill Sans';
     font-size: 14px;
@@ -71,8 +72,9 @@
     line-height: 77px;
     text-align: right;
     text-transform: uppercase;
+    cursor: pointer
   }
-  nav a:hover {
+  nav a:hover, nav .nav-link:hover {
     color: $link-yellow !important;
   }
   .is-active {

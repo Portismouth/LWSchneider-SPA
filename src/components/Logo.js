@@ -6,7 +6,7 @@ import { setPanel } from '../actions/panel';
 
 const Logo = props => {
   return (window.location.pathname == '/') ?
-  <div>
+  <div className="d-none d-lg-block">
     <img id="logo" onClick={() => (props.dispatch(revertWindstop()), props.dispatch(setPanel(0)))} src={props.imageUrl} alt="logo" />
   </div>
   :
