@@ -57,9 +57,35 @@ class HomePage extends React.Component {
     window.innerWidth < 992 && this.setState({
       isMobile: true
     });
+    if (window.innerWidth < 577) {
+      // document.documentElement.webkitRequestFullscreen();
+      // document.documentElement.mozRequestFullscreen();
+      this.toggleFullScreen();
+    }
+    window.addEventListener('touchmove', function () { })
   }
   componentWillUnmount() {
     clearInterval(this.interval)
+  }
+  toggleFullScreen() {
+    if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      if (document.cancelFullScreen) {
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      }
+    }
   }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
@@ -126,7 +152,7 @@ class HomePage extends React.Component {
         }
       >
         <PanelTitle 
-          colSpan={i === 3 ? 6 : 4}
+          colSpan={i === 0 ? 5 : i === 3 ? 6 : 4}
           panelTitle={asset.panel_title}
           titleId={`homePanel${i}`}
         />

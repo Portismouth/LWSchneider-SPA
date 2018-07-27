@@ -31,7 +31,6 @@ export default class Navigation extends Component {
             backgroundRepeat: "no-repeat" 
           }} 
         />
-        <NavbarBrand />
         <Collapse isOpen={this.state.isOpen} navbar>
           <div id="windStopNav">
             <img

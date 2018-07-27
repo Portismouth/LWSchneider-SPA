@@ -1,4 +1,4 @@
-.carousel {
+#aboutPageCarousel .carousel {
   position: relative;
   height: 40vh;
 }
@@ -7,11 +7,9 @@
   height: auto;
   width: auto;
 }
-.carousel-item {
-  img {
-    height: 35vh;
-    width: auto;
-  }
+.about-carousel-img {
+  height: 35vh;
+  width: auto;
 }
 .carousel-indicators {
   bottom: -20px;
@@ -30,5 +28,15 @@
   }
   .active {
     background-color: #fad150;
+  }
+}
+@media (max-width: 576px) {
+  #aboutPageCarousel .carousel {
+    position: relative;
+    height: 28vh;
+  }
+  .about-carousel-img {
+    height: 22vh;
+    width: auto;
   }
 }

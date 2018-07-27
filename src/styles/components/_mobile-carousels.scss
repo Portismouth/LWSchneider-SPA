@@ -1,0 +1,67 @@
+@media (max-width: 576px) {
+  div#mobileHandgunCarousel {
+    height: 55vh;
+    .carousel.slide {
+      margin: 5%;
+      .carousel-inner {
+        overflow: visible;
+      }
+      .carousel-indicators {
+        bottom: 0;
+      }
+    }
+  }
+  .handgun {
+    height: 25vh !important;
+  }
+  .rifle {
+    height: 25vh !important;
+    transform: rotateY(-10deg);
+    width: 80vw !important;
+  }
+  .parts-hint {
+    font-family: $Metropolis;
+    font-size: 10px;
+    line-height: 18px;
+    margin: 0;
+
+    // animation-name: fadeOut;
+    // animation-iteration-count: 1;
+    // animation-timing-function: ease-in-out;
+    // animation-duration: 1.5s;
+    // animation-fill-mode: forwards;
+  }
+  // @keyframes fadeOut {
+  //   0% {
+  //     opacity: 1;
+  //   }
+  //   100% {
+  //     opacity: 0;
+  //   }
+  // }
+}
+// Mobile Part Carousel
+#mobilePartsCar.carousel-caption {
+  bottom: -90%;
+  display: block !important;
+  display: block !important;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  h3 {
+    color: $link-yellow;
+    font-family: $Metropolis;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 22px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  p {
+    font-family: $Metropolis;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+  }
+}

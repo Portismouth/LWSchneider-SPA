@@ -1,5 +1,5 @@
 div#SlideDiv {
-  left: 8vw;
+  left: 5vw;
   top: 5%;
 }
 div#FrameDiv {
@@ -8,7 +8,7 @@ div#FrameDiv {
 }
 div#BarrelDiv {
   top: 0;
-  right: 0;
+  right: -5%;
 }
 div#ButtStockAssemblyDiv {
   left: -10%;
@@ -46,14 +46,5 @@ div#BoltCarrierGroupDiv {
   align-self: center;
 }
 @media (max-width: 576px) {
-  .parts-image.invisible {
-    height: 32vh;
-  }
-  .handgun {
-    height: 32vh;
-  }
-  .rifle {  
-    width: 95vw !important;
-    transform: rotateY(25deg);
-  }
+  
 }

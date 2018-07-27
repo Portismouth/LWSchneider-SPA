@@ -4,7 +4,7 @@
     font-family: $Ashbury;
     font-size: 1.25vmax;
     font-weight: 300;
-    line-height: 1.7vmax;
+    line-height: 1.5vmax;
   }
 }
 .capabilities-listing-header {
@@ -33,5 +33,29 @@
     font-size: 1vmax;
     font-weight: 300;
     line-height: 1.7vmax;
+  }
+}
+@media (max-width: 576px) {
+  .capabilities-listing-header {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .capabilities-list li {
+    color: #fefffe;
+    font-family: 'Ashbury';
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 18px;
+  }
+  .about-ul {
+    padding-left: 5px;
+    list-style-position: inside;
+    li {
+      color: $white;
+      font-family: $Ashbury;
+      font-size: 2vmax;
+      font-weight: 300;
+      line-height: 2.5vmax;
+    }
   }
 }

@@ -23,7 +23,7 @@ button:focus {
   z-index: 10000;
   cursor: pointer;
   img {
-    transform: rotateX(180deg)
+    transform: rotateX(180deg);
   }
 }
 .scroll-text {
@@ -84,11 +84,6 @@ button:focus {
   background-color: #fad150;
   border: none;
   color: #0b3954;
-  font-family: $Metropolis;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 22px;
-  text-align: center;
 }
 .button--parts-panel {
   border: none;
@@ -126,10 +121,21 @@ button:focus {
     width: 100%;
     border-left: none;
     border-right: none;
+    font-size: 10px;
+    letter-spacing: .5px;
+    padding: 0;
+  }
+  .scroll-button-up {
+    top: unset;
+    bottom: 15%;
   }
 }
 @media (max-width: 576px) {
   .scroll-button {
     bottom: 5%;
+  }
+  .scroll-text {
+    font-size: 14px;
+    line-height: 1.2vmax;
   }
 }

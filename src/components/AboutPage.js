@@ -91,6 +91,7 @@ class AboutPage extends Component {
           <div>
             <FounderImage imgSrc={asset.panel_image} />
             <PanelTitle
+              titleId={"aboutHomePanelTitle"}
               panelTitle={asset.panel_title}
               colSpan={{
                 xl: 4,
@@ -99,7 +100,7 @@ class AboutPage extends Component {
             />
             <PanelText
               colSpan={{
-                xl: 4,
+                xl: 5,
                 lg: 6
               }}
               panelText={asset.panel_text}
@@ -110,14 +111,15 @@ class AboutPage extends Component {
         {i === 1 && (
           <div>
             <PanelTitle
+              titleId="aboutFamPicPanelTitle"
               colSpan={{
                 xl: 5,
                 lg: 6
               }}
               panelTitle={asset.panel_title}
             />
-            <div className="row no-gutters justify-content-center">
-              <div className="col-6">
+            <div className="row no-gutters justify-content-center pb-3">
+              <div className="col-11 col-lg-6">
                 <div className="row no-gutters justify-content-center">
                   <img
                     id="familyImage"
@@ -128,16 +130,16 @@ class AboutPage extends Component {
               </div>
             </div>
             <div className="row no-gutters justify-content-center">
-              <div className="col-6">
+              <div className="col-11 col-lg-6">
                 <div className="row no-gutters justify-content-center">
-                  <div className="col-6">
+                  <div className="col-6 col-xl-5 pr-2">
                     <ul className="about-ul">
                       {asset.panel_bullets_col_1.map((item, i) => (
                         <li key={item.list_items}>{item.list_items}</li>
                       ))}
                     </ul>
                   </div>
-                  <div className="col-6">
+                  <div className="col-6 col-xl-5 pr-2">
                     <ul className="about-ul">
                       {asset.panel_bullets_col_2.map((item, i) => (
                         <li key={item.list_items}>{item.list_items}</li>

@@ -18,21 +18,22 @@
     text-transform: uppercase;
   }
   .collapsing {
-    background-color: #0b2d55;
+    background-color: rgba(11,45,85,.75);
     background-size: 200vw;
     display: flex !important;
     height: 80vh !important;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    transition: none;
+    transition: .5s linear;
   }
   .collapse:not(.show).navbar-collapse {
-    background-color: #0b2d55;
+    background-color: rgba(11,45,85,.9);
     height: 80vh;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    transition: .5s linear;
     > #windstopNav {
       > img {
         height: 225vw !important;
@@ -40,13 +41,14 @@
     }
   }
   .collapse.show.navbar-collapse {
-    background-color: #0b2d55;
+    background-color: rgba(11,45,85,.9);
     background-size: 200vw;
     display: flex !important;
     height: 80vh;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    transition: .5s linear;
     > #windstopNav {
       > img {
         height: 225vw !important;
@@ -58,7 +60,7 @@
   .navbar {
     position: absolute;
     top: 50%;
-    right: 2%;
+    right: 2.25%;
     transform: translateY(-50%);
     z-index: 999;
   }

@@ -89,7 +89,8 @@ class ValuesPage extends Component {
         {i === 0 && (
           <div>
             <ValuesPageHero imageSrc={asset.panel_image} />
-            <PanelTitle 
+            <PanelTitle
+              titleId={"valuesHomeTitle"} 
               colSpan={{
                 xl: 8,
                 lg: 10,

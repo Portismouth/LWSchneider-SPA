@@ -6,6 +6,9 @@
 }
 @media screen and (max-width: 991px) {
   .embed-responsive-21by9::before {
-    padding-top: 50%
+    padding-top: 50%;
+  }
+  .embed-responsive .value-vid {
+    height: 32vmax;
   }
 }

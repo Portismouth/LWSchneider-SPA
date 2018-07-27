@@ -15,24 +15,20 @@ import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import CareersPage from '../components/CareersPage';
 
-const AppRouter = () => (
+const AppRouter = (props) => (
   <BrowserRouter>
     <div className="container-fluid">
       <Logo imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
       <Navigation />
       <WindStop imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg" />
-      <TransitionGroup>
-        <CSSTransition key={location.key} classNames="fade" timeout={300}>
-          <Switch location={location} >
-            <Route path="/" component={HomePage} exact={true} />
-            <Route path="/capabilities" component={CapabilitiesPage} />
-            <Route path="/values" component={ValuesPage} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/careers" component={CareersPage} />
-          </Switch>
-        </CSSTransition>  
-      </TransitionGroup>
+        <Switch location={location} >
+          <Route path="/" component={HomePage} exact={true} />
+          <Route path="/capabilities" component={CapabilitiesPage} />
+          <Route path="/values" component={ValuesPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/careers" component={CareersPage} />
+        </Switch>
       <Footer />
     </div>
   </BrowserRouter>

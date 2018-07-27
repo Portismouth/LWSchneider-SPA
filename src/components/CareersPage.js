@@ -40,42 +40,47 @@ class CareersPage extends Component {
       <div 
         className={
           i === this.state.jobListings.length-1
-          ? "job-listing border-top border-bottom py-2"
-          : "job-listing border-top py-2"
+          ? "job-listing border-top border-bottom py-1 py-lg-2"
+          : "job-listing border-top py-1 py-lg-2"
         }
         key={i}
       >
         <div 
-          className="career-col-heading row no-gutters">
-          {listing.position_title}
+          className="row no-gutters">
+          <p className="career-col-heading">
+            {listing.position_title}
+          </p>
         </div>
         <div 
-          className="career-col-text row no-gutters">
-          {listing.position_blurb}
+          className="row no-gutters">
+          <p className="listing-text">
+            {listing.position_blurb}
+          </p>
         </div>
       </div>
     ));
     return (
-      <div className="page">
+      <div id="careersPage" className="page">
         <Panel className="panel">
           <PanelTitle
             panelTitle={this.state.panelTitle} 
             titleId={"careersTitle"}
           />
-          <PanelText 
+          <PanelText
+            textId={"careersText"} 
             colSpan={4} 
             panelText={this.state.panelText} 
           />
           <div className="row no-gutters justify-content-center">
-            <div className="col-8">
+            <div className="col-11 col-lg-8">
               <div className="row no-gutters justify-content-center">
                 <img className="careers-hero" src={this.state.panelImage} alt=""/>
               </div>
-              <div className="row no-gutters justify-content-center mt-3">
-                <div className="col-4 pr-3">
+              <div className="row no-gutters justify-content-lg-center mt-3">
+                <div className="col-10 col-lg-4 mb-3 mb-lg-0 pr-2 pr-lg-4">
                   {jobListings}
                 </div>
-                <div className="col-4 pr-3">
+                <div className="col-10 col-lg-4 pr-2 pr-lg-4">
                   <div className="row no-gutters mb-3">
                     <p className="career-col-heading">
                       To apply, please email Jesse at:
@@ -100,8 +105,8 @@ class CareersPage extends Component {
                     </p>
                   </div>
                 </div>
-                <div className="col-4 pr-3">
-                  <div className="row no-gutters mb-3">
+                <div className="col-10 col-lg-4 pr-lg-4">
+                  <div className="row no-gutters mb-2 mb-lg-3">
                     <p className="career-col-heading">
                       New to Manufacturing or CNC Machining?
                     </p>
@@ -120,7 +125,7 @@ class CareersPage extends Component {
                     </p>
                   </div>
                   <div 
-                    className="row no-gutters"
+                    className="row no-gutters justify-content-baseline"
                   >
                     <img className="people-link-image" src={this.state.peopleImage} alt="people-link-image"/>
                   </div>

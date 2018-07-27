@@ -37,7 +37,7 @@
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
-  height: 200px;
+  height: 100px;
   width: 100%;
   max-width: 500px;
 }
@@ -104,5 +104,8 @@
     width: 170px;
     top: 20px;
     left: 20px;
+  }
+  #familyImage {
+    height: 25vh;
   }
 }

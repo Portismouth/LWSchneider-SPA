@@ -22,8 +22,7 @@ export default class PartsPanel extends Component {
           <img
             className={
               partsIndex == image.part_label
-                ? partsIndex == 'Main' ? 'handgun parts-panel active d-none d-lg-block' 
-                : 'handgun parts-panel active'
+                ? 'handgun parts-panel active'
                 : 'handgun parts-panel inactive'
             }
             src={image.part_image}
@@ -59,15 +58,6 @@ export default class PartsPanel extends Component {
                       : { visibility: 'hidden' }
                   }
                 />
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="row no-gutters justify-content-center d-lg-none">
-          {image.part_label !== "Main" && (
-            <div className="col">
-              <div className="row no-gutters justify-content-center">
-                <p className="button--parts-panel active text-center">Test</p>
               </div>
             </div>
           )}

@@ -77,13 +77,13 @@ export default class AboutPageCarousel extends Component {
         onTouchEnd={this.handleTouchEnd}
       >
         <div className="col-6">
-          <div className="row no-gutters justify-content-center">
+          <div id="aboutPageCarousel" className="row no-gutters justify-content-center">
             <Carousel
               activeIndex={activeIndex}
               next={this.next}
               previous={this.previous}
               ride={'carousel'}
-              interval={3000}
+              interval={2000}
             >
               <CarouselIndicators items={slides} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
               {slides}

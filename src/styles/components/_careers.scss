@@ -43,12 +43,40 @@ img.careers-hero {
 }
 .careers-link:hover {
   text-decoration: underline;
-  color: $link-yellow
+  color: $link-yellow;
 }
 #careersTitle {
   margin: 0;
 }
 .people-link-image {
-  max-width: 100%;
-  height: 10vh;
+  width: auto;
+  height: 4vmax;
+}
+@media (max-width: 576px) {
+  #careersPage {
+    .panel {
+      overflow: scroll;
+    }
+  }
+  #careersPage > .panel > .row.no-gutters.justify-content-center.w-100.align-items-center > .page-content {
+    margin-top: 80%;
+  }
+  .career-col-heading {
+    font-size: 2.75vmax;
+    font-weight: 200;
+    line-height: 3vmax;
+    margin-bottom: 0;
+  }
+  .career-col-text {
+    font-size: 1.75vmax;
+    font-weight: 300;
+    line-height: 2vmax;
+    margin-bottom: 0.5rem;
+  }
+  .listing-text {
+    font-size: 2.75vmax;
+    font-weight: 300;
+    line-height: 3vmax;
+    margin-bottom: 0;
+  }
 }

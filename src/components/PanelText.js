@@ -21,7 +21,7 @@ const PanelText = (props) => {
     } 
   }
   return (
-    <div className="row no-gutters justify-content-center mt-3">
+    <div className="row no-gutters justify-content-center mt-2 mt-lg-3">
       <div 
         className={
           colClasses !== undefined
@@ -29,7 +29,7 @@ const PanelText = (props) => {
           : "col-10 col-lg-5"
           }
       >
-        <p className="panel-text">{props.panelText}</p>
+        <p id={props.textId} className="panel-text">{props.panelText}</p>
       </div>
     </div>
   )

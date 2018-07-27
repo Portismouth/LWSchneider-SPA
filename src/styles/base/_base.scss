@@ -12,18 +12,37 @@
   font-style: normal;
 }
 html {
-  height: 100vh;
+  height: 100%;
+  overscroll-behavior: none;
+}
+header {
+  height: 0;
+}
+main {
+  height: 100%;
 }
 body {
   background: $background-color;
   overflow: hidden;
   color: white;
   font-size: 16px;
+  height: 100%;
+  letter-spacing: 1.15px;
+}
+#app {
+  height: 100%;
 }
 .page {
-  height: 100vh;
+  height: 100% !important;
+
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
 }
 .container-fluid {
+  height: 100%;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -32,8 +51,30 @@ body {
   opacity: 0;
   z-index: 1;
 }
-
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 250ms ease-in;
+}
+.row:before {
+  display: none !important;
+}
+.row:after {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

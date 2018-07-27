@@ -22,7 +22,7 @@ const ScrollButton = props => (
         alt="arrow-down"
       />
       {props.arrowUp && 
-      <div className="scroll-text mb-2">
+      <div className="scroll-text d-none d-lg-block mb-2">
         {props.buttonText && props.buttonText}
       </div>
       }

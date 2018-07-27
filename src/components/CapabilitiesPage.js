@@ -10,7 +10,9 @@ import Panel from './Panel';
 import PanelTitle from './PanelTitle';
 import PanelText from './PanelText';
 import HandgunPartsPanel from './HandgunPartsPanel';
+import HandgunPartsPanelMobile from './HandgunPartsPanelMobile';
 import RiflePartsPanel from './RiflePartsPanel';
+import RiflePartsPanelMobile from './RiflePartsPanelMobile';
 import ScrollButton from './ScrollButton';
 
 class CapabilitiesPage extends React.Component {
@@ -70,7 +72,6 @@ class CapabilitiesPage extends React.Component {
     }
   }
   handleChangePanels = direction => {
-    // console.log(direction)
     if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {
       this.setState({
         panelIndex: this.state.panelIndex + 1,
@@ -112,7 +113,11 @@ class CapabilitiesPage extends React.Component {
         {/* Parts Panel */}
         {i === 1 && (
           <div className="content-wrapper">
-            <PanelTitle panelTitle={asset.panel_title} colSpan={6} />
+            <PanelTitle 
+              titleId={"handgunPartsTitle"}
+              panelTitle={asset.panel_title} 
+              colSpan={6} 
+            />
             <div className="row no-gutters justify-content-center">
               <p className="explore-text d-none d-lg-block">Click Below to Explore</p>
             </div>
@@ -147,11 +152,13 @@ class CapabilitiesPage extends React.Component {
               </div>
             </div>
             {this.state.activePartsPanel === 0 ? (
-              <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
+              window.innerWidth > 576 
+                ? <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
+                  : <HandgunPartsPanelMobile handgunsGroup={asset.handguns_group} />
             ) : (
-              <RiflePartsPanel
-                sportingRiflesGroup={asset.sporting_rifles_group}
-              />
+              window.innerWidth > 576
+                ? <RiflePartsPanel sportingRiflesGroup={asset.sporting_rifles_group} />
+                  : <RiflePartsPanelMobile handgunsGroup={asset.sporting_rifles_group} />
             )}
           </div>
         )}
