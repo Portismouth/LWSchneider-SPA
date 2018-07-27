@@ -37,7 +37,7 @@ class ContactPage extends Component {
     return (
       <div className="page">
         <Panel
-          className="panel"
+          className="panel"   
           style={{ backgroundImage: `url(${this.state.panelImage})` }}
         >
           <PanelTitle

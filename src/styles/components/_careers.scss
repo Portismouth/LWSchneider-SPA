@@ -58,19 +58,22 @@ img.careers-hero {
       overflow: scroll;
     }
   }
-  #careersPage > .panel > .row.no-gutters.justify-content-center.w-100.align-items-center > .page-content {
-    margin-top: 80%;
+  #careersPage
+    > .panel
+    > .row.no-gutters.justify-content-center.w-100.align-items-center
+    > .page-content {
+    margin-top: 135%;
   }
   .career-col-heading {
-    font-size: 2.75vmax;
+    font-size: 3vmax;
     font-weight: 200;
-    line-height: 3vmax;
+    line-height: 3.25vmax;
     margin-bottom: 0;
   }
   .career-col-text {
-    font-size: 1.75vmax;
+    font-size: 2.75vmax;
     font-weight: 300;
-    line-height: 2vmax;
+    line-height: 3vmax;
     margin-bottom: 0.5rem;
   }
   .listing-text {
@@ -78,5 +81,13 @@ img.careers-hero {
     font-weight: 300;
     line-height: 3vmax;
     margin-bottom: 0;
+  }
+  .careers-main-link {
+    color: #fefffe;
+    font-family: $Ashbury;
+    font-size: 2.75vmax;
+    font-weight: 300;
+    line-height: 3vmax;
+    text-decoration: underline;
   }
 }
