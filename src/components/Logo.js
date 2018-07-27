@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { revertWindstop } from '../actions/windstop';
+import { setPanel } from '../actions/panel';
 
 const Logo = props => {
-  return (props.customHandler) ?
-  // This is here so you can implement custom logic for what clicking the logo does on different pages
-  // Specifically, when you are on the home page it goes to top panel instead of being a link
+  return (window.location.pathname == '/') ?
   <div>
-    <style dangerouslySetInnerHTML={{__html: '#logo {display: none}'}} />
-    <img id="logo" className="home" onClick={props.customHandler} src={props.imageUrl} alt="logo" />
+    <img id="logo" onClick={() => (props.dispatch(revertWindstop()), props.dispatch(setPanel(0)))} src={props.imageUrl} alt="logo" />
   </div>
   :
   <div>
