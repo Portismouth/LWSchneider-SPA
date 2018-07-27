@@ -171,7 +171,9 @@ class CapabilitiesPage extends React.Component {
           </div>
         )}
         {i === 3 && (
-          <div className="content-wrapper">
+          <div 
+            id="capabilitiesListing"
+            className="content-wrapper">
             <CapabilitesPageListings
               pageListing={asset.capabilities_listings}
             />

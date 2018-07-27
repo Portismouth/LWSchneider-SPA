@@ -20,7 +20,8 @@ export default class Navigation extends Component {
   }
   render() {
     console.log(Collapse.prototype);
-    return <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
+    return (
+      <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
         <NavbarBrand
           className="d-lg-none"
         >
