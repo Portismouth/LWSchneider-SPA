@@ -16,7 +16,7 @@ const PanelTitle = (props) => {
       ]
     } else if (typeof (props.colSpan === "number")) {
       colClasses = [
-        'col-11',
+        'col-10 col-sm-11',
         `col-lg-${props.colSpan}`
       ]
     }
@@ -25,7 +25,7 @@ const PanelTitle = (props) => {
     <div className="row no-gutters justify-content-center">
       <div 
         className={
-          colClasses ? colClasses.join(' ') : "col-11 col-lg-4"
+          colClasses ? colClasses.join(' ') : "col-10 col-sm-11 col-lg-4"
         }
       >
         <h1

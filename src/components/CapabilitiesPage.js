@@ -152,11 +152,11 @@ class CapabilitiesPage extends React.Component {
               </div>
             </div>
             {this.state.activePartsPanel === 0 ? (
-              window.innerWidth > 576 
+              window.innerWidth > 992 
                 ? <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
                   : <HandgunPartsPanelMobile handgunsGroup={asset.handguns_group} />
             ) : (
-              window.innerWidth > 576
+              window.innerWidth > 992
                 ? <RiflePartsPanel sportingRiflesGroup={asset.sporting_rifles_group} />
                   : <RiflePartsPanelMobile handgunsGroup={asset.sporting_rifles_group} />
             )}

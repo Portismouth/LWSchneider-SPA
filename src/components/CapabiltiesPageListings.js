@@ -12,14 +12,20 @@ export default class CapabilitiesPageListings extends React.Component {
         key={i + 1}
         className={
           i < capabilitiesListings.length -1 
-          ? "col-6 col-lg"
-          : "col-12 col-lg"
+            ? i === 1 
+            ? "col-6 col-lg order-first order-lg-0"
+            : "col-6 col-lg" 
+            : "col-12 col-lg"
         }
       >
         <div className="row no-gutters justify-content-lg-center">
           <h1
             className="capabilities-listing-header"
-          >{listing.listings_title}</h1>
+          >
+            {listing.listings_title}
+          </h1>
+        </div>
+        <div className="row no-gutters justify-content-lg-center">
             <ul className="capabilities-list">
               {listing.list_items.map((item, i) => (
                 <li

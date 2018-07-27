@@ -1,4 +1,4 @@
-@media (max-width: 576px) {
+@media (max-width: 992px) {
   div#mobileHandgunCarousel {
     height: 55vh;
     .carousel.slide {
@@ -22,7 +22,7 @@
   .parts-hint {
     font-family: $Metropolis;
     font-size: 10px;
-    line-height: 18px;
+    line-height: 25px;
     margin: 0;
 
     // animation-name: fadeOut;
