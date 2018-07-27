@@ -51,7 +51,7 @@
 }
 .slide-show-img-container {
   position: absolute;
-  right: 0;
+  right: -100px;
   animation-name: slip-n-slide;
   animation-duration: 33.33s;
   animation-timing-function: linear;
@@ -109,11 +109,7 @@
   top: 20px;
   max-width: 336px;
   width: 20vw;
-}
-#logo.home {
-  display: block;
-  cursor: pointer;
-  position: fixed
+  cursor: pointer
 }
 @media (max-width: 991px) {
   #logo {
