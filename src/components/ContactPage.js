@@ -8,12 +8,17 @@ import Panel from './Panel';
 import PanelTitle from './PanelTitle';
 import PanelText from './PanelText';
 import PanelContact from './PanelContact';
+import { setPanel } from '../actions/panel';
 
 class ContactPage extends Component {
   state = {
     panelTitle: '',
     panelText: '',
     panelImage: ''
+  }
+  // Dispatching this to force Navigation to rerender
+  componentWillMount() {
+    this.props.dispatch(setPanel(0))
   }
   componentDidMount() {
     fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/167')
