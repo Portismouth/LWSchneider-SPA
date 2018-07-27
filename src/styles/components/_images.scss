@@ -51,7 +51,7 @@
 }
 .slide-show-img-container {
   position: absolute;
-  right: 0;
+  right: -100px;
   animation-name: slip-n-slide;
   animation-duration: 33.33s;
   animation-timing-function: linear;

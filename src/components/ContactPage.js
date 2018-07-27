@@ -16,6 +16,7 @@ class ContactPage extends Component {
     panelText: '',
     panelImage: ''
   }
+  // Dispatching this to force Navigation to rerender
   componentWillMount() {
     this.props.dispatch(setPanel(0))
   }
