@@ -10,7 +10,9 @@ const Logo = props => {
     <img id="logo" onClick={() => (props.dispatch(revertWindstop()), props.dispatch(setPanel(0)))} src={props.imageUrl} alt="logo" />
   </div>
   :
-  <div>
+  <div 
+    className="d-none d-lg-block"
+  >
     <Link 
       to="/"
       onClick={() => (props.dispatch(revertWindstop()))}

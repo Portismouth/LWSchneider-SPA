@@ -10,7 +10,11 @@ export default class CapabilitiesPageListings extends React.Component {
     const listings = capabilitiesListings.map((listing, i) => (
       <div 
         key={i + 1}
-        className="col-12 col-lg"
+        className={
+          i < capabilitiesListings.length -1 
+          ? "col-6 col-lg"
+          : "col-12 col-lg"
+        }
       >
         <div className="row no-gutters justify-content-lg-center">
           <h1

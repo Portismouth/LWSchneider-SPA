@@ -20,76 +20,78 @@ export default class Navigation extends Component {
   }
   render() {
     console.log(Collapse.prototype);
-    return <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
-      <NavbarBrand
-        className="d-lg-none"
-      >
-        <NavLink 
-          to="/"
-          onClick={this.state.isOpen && this.toggle}
+    return (
+      <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
+        <NavbarBrand
+          className="d-lg-none"
         >
-          <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
-        </NavLink>
-      </NavbarBrand>
-      <NavbarToggler 
-        onClick={this.toggle} 
-        style={{ 
-        backgroundImage: this.state.isOpen 
-          ? 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/closemenu.svg)' 
-          : 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/hamburgermenu.svg)',
-          backgroundRepeat: "no-repeat" 
-        }} 
-      />
-      <Collapse isOpen={this.state.isOpen} navbar>
-        <div id="windStopNav">
-          <img
-            src="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg"
-            alt="turny-thing"
-          />
-        </div>
-        <Nav navbar>
-          <NavItem>
-            <NavLink 
-              to="/capabilities" 
-              className="nav-link" 
-              activeClassName="is-active" 
-              onClick={this.toggle}
-            >
-              Capabilities
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink 
-              to="/values" 
-              className="nav-link" 
-              activeClassName="is-active" 
-              onClick={this.toggle}
-            >
-              Values
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink 
-              to="/about" 
-              className="nav-link" 
-              activeClassName="is-active" 
-              onClick={this.toggle}
-            >
-              About
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink 
-              to="/contact" 
-              className="nav-link" 
-              activeClassName="is-active" 
-              onClick={this.toggle}
-            >
-              Contact
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
-    </Navbar>
+          <NavLink 
+            to="/"
+            onClick={this.state.isOpen && this.toggle}
+          >
+            <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
+          </NavLink>
+        </NavbarBrand>
+        <NavbarToggler 
+          onClick={this.toggle} 
+          style={{ 
+          backgroundImage: this.state.isOpen 
+            ? 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/closemenu.svg)' 
+            : 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/hamburgermenu.svg)',
+            backgroundRepeat: "no-repeat" 
+          }} 
+        />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <div id="windStopNav">
+            <img
+              src="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg"
+              alt="turny-thing"
+            />
+          </div>
+          <Nav navbar>
+            <NavItem>
+              <NavLink 
+                to="/capabilities" 
+                className="nav-link" 
+                activeClassName="is-active" 
+                onClick={this.toggle}
+              >
+                Capabilities
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink 
+                to="/values" 
+                className="nav-link" 
+                activeClassName="is-active" 
+                onClick={this.toggle}
+              >
+                Values
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink 
+                to="/about" 
+                className="nav-link" 
+                activeClassName="is-active" 
+                onClick={this.toggle}
+              >
+                About
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink 
+                to="/contact" 
+                className="nav-link" 
+                activeClassName="is-active" 
+                onClick={this.toggle}
+              >
+                Contact
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    )
   }
 }
