@@ -60,10 +60,10 @@ class AboutPage extends Component {
     let deltaX = this.state.touchX - e.changedTouches[0].clientX
     let deltaY = this.state.touchY - e.changedTouches[0].clientY
     let slope = Math.abs(deltaY / deltaX)
-    if (this.state.touchY && slope >= .5) {
+    if (this.state.touchY && slope >= .5 && Math.abs(deltaY) > 20) {
       this.handleChangePanels(deltaY)
-      this.setState({touchX: null, touchY: null})
     }
+    this.setState({touchX: null, touchY: null})
   }
   handleChangePanels = direction => {
     if (direction > 0 && this.state.panelIndex < this.state.assets.length - 1) {

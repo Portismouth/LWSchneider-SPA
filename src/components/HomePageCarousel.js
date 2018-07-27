@@ -9,7 +9,7 @@ export default class HomePageCarousel extends Component {
     // let images = [...this.props.images, ...this.props.images.slice(0, 3)];
     let images = this.props.images
     const slideShow = images.map((image, i) => (
-      <div 
+      <div
         className={`slide-show-img-container stagger-${i}`}
         style={{backgroundImage: `url(${image.image})`}}
         key={i}

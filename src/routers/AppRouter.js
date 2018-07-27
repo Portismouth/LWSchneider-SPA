@@ -15,7 +15,7 @@ import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import CareersPage from '../components/CareersPage';
 
-const AppRouter = (props) => (
+const AppRouter = () => (
   <BrowserRouter>
     <div className="container-fluid">
       <Logo imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
