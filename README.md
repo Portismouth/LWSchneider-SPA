@@ -1,5 +1,5 @@
 [https://github.com/Portismouth/LWSchneider-SPA](https://github.com/Portismouth/LWSchneider-SPA)
-"# LWSchneider-SPA" 
+
 
 ## How to Push Updates Live
 ```

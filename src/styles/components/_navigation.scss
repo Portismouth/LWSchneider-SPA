@@ -7,13 +7,6 @@
     top: 25px;
     width: 100%;
     z-index: 999;
-    transition-property: width;
-    transition-duration: 0s;
-    transition-delay: 0s
-  }
-  .navbar.retracted {
-    width: 40%;
-    transition-delay: .5s
   }
   nav a {
     color: $white !important;
