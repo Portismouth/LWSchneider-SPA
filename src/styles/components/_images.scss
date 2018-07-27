@@ -42,18 +42,12 @@
   max-width: 500px;
 }
 .slideshow-row {
-  // animation: moveSlideshow 30s linear infinite;
   height: 200px;
   left: 0;
   position: absolute;
   top: 0;
   transform: translate3d(0, 0, 0);
   width: 700px;
-}
-@keyframes moveSlideshow {
-  100% {
-    transform: translateX(-1800px);
-  }
 }
 .slide-show-img-container {
   position: absolute;
@@ -70,6 +64,30 @@
   25% {opacity: 0}
   50% {right: 1000px}
   100% {opacity: 0; right: 1000px}
+}
+// Not enough space to fade in and out on mobile
+// @keyframes mobile-slip-n-slide {
+//   0% {opacity: 0; right: 0}
+//   10% {opacity: 0}
+//   11%, 14% {opacity: 1}
+//   15% {opacity: 0}
+//   50% {right: 1000px}
+//   100% {opacity: 0; right: 1000px}
+// }
+@keyframes mobile-slip-n-slide {
+  0% {right: 0}
+  50%, 100% {right: 1000px}
+}
+@media screen and (max-width: 767px) {
+  .slideshow-row {
+    left: 50%;
+    transform: translateX(-50%)
+  }
+}
+@media screen and (max-width: 576px) {
+  .slide-show-img-container {
+    animation-name: mobile-slip-n-slide
+  }
 }
 
 // to quickly regenerate these, run this js in repl or browser
