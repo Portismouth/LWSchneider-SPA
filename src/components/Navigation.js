@@ -20,8 +20,18 @@ export default class Navigation extends Component {
     }
   }
   render() {
-    console.log(Collapse.prototype);
-    return <Navbar light expand="lg">
+    return (
+      <Navbar light expand="lg">
+        <NavbarBrand
+          className="d-lg-none"
+        >
+          <NavLink 
+            to="/"
+            onClick={this.state.isOpen && this.toggle}
+          >
+            <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
+          </NavLink>
+        </NavbarBrand>
         <NavbarToggler 
           onClick={this.toggle} 
           style={{ 
@@ -81,6 +91,7 @@ export default class Navigation extends Component {
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar>;
+      </Navbar>
+    );
   }
 }

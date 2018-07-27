@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { revertWindstop } from '../actions/windstop';
 
 const Logo = props => (
-  <div>
+  <div
+    className="d-none d-lg-block"
+  >
     <Link 
       to="/"
       onClick={() => (props.dispatch(revertWindstop()))}

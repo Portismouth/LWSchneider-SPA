@@ -4,9 +4,10 @@
     padding-right: 0;
     position: absolute;
     right: 0;
-    top: 25px;
+    top: 20px;
     width: 100%;
-    z-index: 999;
+    height: 100%;
+    padding: 0;
   }
   nav a {
     color: $white !important;
@@ -18,37 +19,31 @@
     text-transform: uppercase;
   }
   .collapsing {
-    background-color: rgba(11,45,85,.75);
+    background-color: $background-color;
     background-size: 200vw;
     display: flex !important;
-    height: 80vh !important;
+    height: 110% !important;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    transition: .5s linear;
+    display: none !important;
   }
   .collapse:not(.show).navbar-collapse {
-    background-color: rgba(11,45,85,.9);
-    height: 80vh;
+    background-color: $background-color;
+    height: 110%;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    transition: .5s linear;
-    > #windstopNav {
-      > img {
-        height: 225vw !important;
-      }
-    }
   }
   .collapse.show.navbar-collapse {
-    background-color: rgba(11,45,85,.9);
+    background-color: $background-color;
     background-size: 200vw;
     display: flex !important;
-    height: 80vh;
+    height: 110%;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    transition: .5s linear;
+    z-index: 900;
     > #windstopNav {
       > img {
         height: 225vw !important;
@@ -96,7 +91,6 @@
     display: none !important;
   }
 }
-
 .navbar-light .navbar-toggler-icon {
   background-image: none;
   display: none;
@@ -106,4 +100,12 @@
   height: 30px;
   width: 30px;
   margin-left: auto;
+  margin-right: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-brand {
+  margin: 0;
 }
