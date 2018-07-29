@@ -133,7 +133,7 @@ class AboutPage extends Component {
               </div>
             </div>
             <div className="row no-gutters justify-content-center">
-              <div className="col-11 col-lg-6">
+              <div className="col-10 col-lg-6">
                 <div className="row no-gutters justify-content-center">
                   <div className="col-6 col-xl-5 pr-2">
                     <ul className="about-ul">

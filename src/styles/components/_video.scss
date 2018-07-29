@@ -12,3 +12,8 @@
     height: 32vmax;
   }
 }
+@media screen and (max-width: 576px) {
+  .embed-responsive .value-vid {
+    height: 28vmax;
+  }
+}

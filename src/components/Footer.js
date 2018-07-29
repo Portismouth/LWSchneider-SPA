@@ -6,13 +6,13 @@ import LinkedIn from './LinkedIn';
 const Footer = () => (
   <div
     id="footer"
-    className="row no-gutters justify-content-center d-none d-lg-flex"
+    className="row no-gutters justify-content-center d-none d-md-flex"
   >
     <div className="col-11">
       <div className="row no-gutters">
-        <div className="col-6">
+        <div className="col-4">
           <div className="row no-gutters">
-            <div className="col-4">
+            <div className="col-lg-6">
               <a
                 className="address"
                 href="https://goo.gl/maps/i3cJNAnpTnM2"
@@ -22,19 +22,19 @@ const Footer = () => (
                 <div className="row no-gutters">Princeton, IL 61356</div>
               </a>
             </div>
-            <div className="col-3 d-flex align-items-end">
+            <div className="col-lg-6 d-flex align-items-end">
               <div className="row no-gutters">
                 <a className="phone" href="tel:+815-875-3835">
                   815-875-3835
                 </a>
               </div>
             </div>
-            <div className="col-auto d-flex align-items-end">
-              <LinkedIn />
-            </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-1 d-flex align-items-end">
+          <LinkedIn />
+        </div>
+        <div className="col-7">
           <div className="row no-gutters justify-content-end">
             <NavLink
               id="careersLink"

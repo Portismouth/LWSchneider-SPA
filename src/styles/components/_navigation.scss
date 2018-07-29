@@ -1,26 +1,4 @@
 @media (max-width: 576px) {
-  nav a {
-    color: $white !important;
-    font-family: $Metropolis;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 54px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .navbar-toggler {
-    border: none;
-    height: 30px;
-    width: 30px;
-    margin-left: auto;
-    margin-right: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 999;
-  }
-}
-@media (max-width: 991.99px) {
   .navbar {
     padding-left: 0;
     padding-right: 0;
@@ -31,15 +9,14 @@
     height: 100%;
     padding: 0;
   }
-  nav a, nav .nav-link {
+  nav a, .nav-link {
     color: $white !important;
     font-family: $Metropolis;
-    font-size: 36px;
+    font-size: 24px !important;
     font-weight: 600;
-    line-height: 65px;
+    line-height: 54px !important;
     text-align: center;
     text-transform: uppercase;
-    cursor: pointer
   }
   .navbar-toggler {
     border: none;
@@ -85,15 +62,26 @@
     }
   }
 }
-@media (max-width: 576px) {
-  nav a {
+@media (min-width: 577px) {
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  nav a, nav .nav-link {
     color: $white !important;
     font-family: $Metropolis;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 600;
-    line-height: 54px;
+    line-height: 65px;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer
   }
   .navbar-toggler {
     border: none;
@@ -102,9 +90,44 @@
     margin-left: auto;
     margin-right: 10px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 45px;
+    right: 25px;
     z-index: 999;
+  }
+  .navbar-toggler-icon {
+    display: none;
+  }
+  .collapsing {
+    background-color: $background-color;
+    background-size: 200vw;
+    display: flex !important;
+    height: 110% !important;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    display: none !important;
+  }
+  .collapse:not(.show).navbar-collapse {
+    background-color: $background-color;
+    height: 110%;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .collapse.show.navbar-collapse {
+    background-color: $background-color;
+    background-size: 200vw;
+    display: flex !important;
+    height: 110%;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 900;
+    > #windstopNav {
+      > img {
+        height: 225vw !important;
+      }
+    }
   }
 }
 @media (min-width: 992px) {
@@ -152,7 +175,6 @@
   background-image: none;
   display: none;
 }
-
 .navbar-brand {
   margin: 0;
 }

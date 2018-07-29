@@ -11,7 +11,7 @@ export default class LinkedIn extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="row no-gutters">
         <a
           onMouseEnter={() => this.setState({ hover: true })}
           onMouseLeave={() => this.setState({ hover: false })}

@@ -1,11 +1,5 @@
 import React from 'react';
 
-//Component Imports
-import PanelTitle from './PanelTitle';
-import PanelText from './PanelText';
-import PanelContact from './PanelContact';
-import CapabilitesPageListings from './CapabiltiesPageListings';
-
 export default class Panel extends React.Component {
   constructor(props) {
     super(props);

@@ -61,14 +61,15 @@ class CareersPage extends Component {
     ));
     return (
       <div id="careersPage" className="page">
-        <Panel className="panel">
+        <Panel className="panel careers-panel">
           <PanelTitle
+            colSpan={6}
             panelTitle={this.state.panelTitle} 
             titleId={"careersTitle"}
           />
           <PanelText
             textId={"careersText"} 
-            colSpan={4} 
+            colSpan={6} 
             panelText={this.state.panelText} 
           />
           <div className="row no-gutters justify-content-center">

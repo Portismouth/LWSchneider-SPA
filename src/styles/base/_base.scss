@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Metropolis Extra Light';
-  src: url('/wp-content/themes/understrap-child-master/fonts/Metropolis-ExtraLight.otf');
+  src: url('/wp-content/themes/lws-theme/assets/fonts/Metropolis-ExtraLight.otf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Ashbury';
-  src: url('/wp-content/themes/understrap-child-master/fonts/AshburyLig.otf');
+  src: url('/wp-content/themes/lws-theme/assets/fonts/AshburyLig.otf');
   font-weight: normal;
   font-style: normal;
 }
@@ -76,5 +76,10 @@ body {
   }
   100% {
     opacity: 0;
+  }
+}
+@media (max-width: 991px) {
+  body {
+    letter-spacing: 1px;
   }
 }

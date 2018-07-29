@@ -103,7 +103,7 @@ export default class MobilePartsPanel extends Component {
           <div className="row no-gutters justify-content-center">
             <p className="parts-hint">Swipe right or left to view parts</p>
           </div>
-          <div id="mobileHandgunCarousel" className="row no-gutters justify-content-center">
+          <div id="mobileRifleCarousel" className="row no-gutters justify-content-center">
             <Carousel
               activeIndex={activeIndex}
               next={this.next}

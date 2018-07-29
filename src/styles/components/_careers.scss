@@ -47,6 +47,14 @@ img.careers-hero {
 }
 #careersTitle {
   margin: 0;
+  font-size: 5vh;
+  line-height: 6vh;
+}
+.listing-text {
+  font-size: 1.2vmax;
+  font-weight: 300;
+  line-height: 2vmax;
+  margin-bottom: 0;
 }
 .people-link-image {
   width: auto;
@@ -62,7 +70,8 @@ img.careers-hero {
     > .panel
     > .row.no-gutters.justify-content-center.w-100.align-items-center
     > .page-content {
-    margin-top: 135%;
+    height: 80vmax;
+    padding-bottom: 30px;
   }
   .career-col-heading {
     font-size: 3vmax;

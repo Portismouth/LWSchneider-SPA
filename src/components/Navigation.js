@@ -124,7 +124,7 @@ class Navigation extends Component {
                 <NavLink 
                   to="/about" 
                   className="nav-link" 
-                  // activeClassName="is-active" 
+                  activeClassName="is-active" 
                   onClick={this.toggle}
                 >
                   About
@@ -146,7 +146,7 @@ class Navigation extends Component {
                 <NavLink 
                   to="/contact" 
                   className="nav-link" 
-                  // activeClassName="is-active" 
+                  activeClassName="is-active" 
                   onClick={this.toggle}
                 >
                   Contact

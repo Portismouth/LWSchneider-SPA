@@ -1,5 +1,47 @@
 @media (max-width: 992px) {
-  div#mobileHandgunCarousel {
+  #mobileHandgunCarousel,
+  #mobileRifleCarousel {
+    height: 45vh;
+    .carousel.slide {
+      margin: 5%;
+      .carousel-inner {
+        overflow: visible;
+      }
+      .carousel-indicators {
+        bottom: 50px;
+      }
+    }
+  }
+  #mobileRifleCarousel {
+    height: 40vh;
+    .carousel.slide {
+      margin: 5%;
+      .carousel-inner {
+        overflow: visible;
+      }
+      .carousel-indicators {
+        bottom: 40px;
+      }
+    }
+  }
+  .handgun {
+    height: 22vh !important;
+  }
+  .rifle {
+    height: 22vh !important;
+    transform: rotateY(-10deg);
+    width: 80vw !important;
+  }
+  .parts-hint {
+    font-family: $Metropolis;
+    font-size: 10px;
+    line-height: 25px;
+    margin: 0;
+  }
+}
+@media (max-width: 576px) {
+  #mobileHandgunCarousel,
+  #mobileRifleCarousel {
     height: 55vh;
     .carousel.slide {
       margin: 5%;
@@ -11,34 +53,6 @@
       }
     }
   }
-  .handgun {
-    height: 25vh !important;
-  }
-  .rifle {
-    height: 25vh !important;
-    transform: rotateY(-10deg);
-    width: 80vw !important;
-  }
-  .parts-hint {
-    font-family: $Metropolis;
-    font-size: 10px;
-    line-height: 25px;
-    margin: 0;
-
-    // animation-name: fadeOut;
-    // animation-iteration-count: 1;
-    // animation-timing-function: ease-in-out;
-    // animation-duration: 1.5s;
-    // animation-fill-mode: forwards;
-  }
-  // @keyframes fadeOut {
-  //   0% {
-  //     opacity: 1;
-  //   }
-  //   100% {
-  //     opacity: 0;
-  //   }
-  // }
 }
 // Mobile Part Carousel
 #mobilePartsCar.carousel-caption {

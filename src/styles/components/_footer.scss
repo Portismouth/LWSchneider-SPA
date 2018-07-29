@@ -47,3 +47,15 @@
   font-weight: 200;
   line-height: 1.7vmax;
 }
+@media (max-width: 991px) {
+  .address,
+  .phone {
+    font-size: 1.25vmax;
+    line-height: 2vmax;
+  }
+  .copyright {
+    font-size: 1vmax;
+    line-height: 2vmax;
+    margin-bottom: 0;
+  }
+}

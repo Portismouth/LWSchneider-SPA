@@ -55,15 +55,30 @@
   animation-name: slip-n-slide;
   animation-duration: 33.33s;
   animation-timing-function: linear;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 @keyframes slip-n-slide {
-  0% {opacity: 0; right: 0}
-  10% {opacity: 0}
-  12%, 23% {opacity: 1}
-  25% {opacity: 0}
-  50% {right: 1000px}
-  100% {opacity: 0; right: 1000px}
+  0% {
+    opacity: 0;
+    right: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  12%,
+  23% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    right: 1000px;
+  }
+  100% {
+    opacity: 0;
+    right: 1000px;
+  }
 }
 // Not enough space to fade in and out on mobile
 // @keyframes mobile-slip-n-slide {
@@ -75,32 +90,55 @@
 //   100% {opacity: 0; right: 1000px}
 // }
 @keyframes mobile-slip-n-slide {
-  0% {right: 0}
-  50%, 100% {right: 1000px}
+  0% {
+    right: 0;
+  }
+  50%,
+  100% {
+    right: 1000px;
+  }
 }
 @media screen and (max-width: 767px) {
   .slideshow-row {
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
 }
 @media screen and (max-width: 576px) {
   .slide-show-img-container {
-    animation-name: mobile-slip-n-slide
+    animation-name: mobile-slip-n-slide;
   }
 }
 
 // to quickly regenerate these, run this js in repl or browser
 // for (let i = 0; i < 9; i++) {console.log(`.stagger-${i} {animation-delay: ${i * 3.7033}s}`)}
-.stagger-0 {animation-delay: 0s}
-.stagger-1 {animation-delay: 3.70s}
-.stagger-2 {animation-delay: 7.41s}
-.stagger-3 {animation-delay: 11.11s}
-.stagger-4 {animation-delay: 14.81s}
-.stagger-5 {animation-delay: 18.52s}
-.stagger-6 {animation-delay: 22.22s}
-.stagger-7 {animation-delay: 25.92s}
-.stagger-8 {animation-delay: 29.63s}
+.stagger-0 {
+  animation-delay: 0s;
+}
+.stagger-1 {
+  animation-delay: 3.7s;
+}
+.stagger-2 {
+  animation-delay: 7.41s;
+}
+.stagger-3 {
+  animation-delay: 11.11s;
+}
+.stagger-4 {
+  animation-delay: 14.81s;
+}
+.stagger-5 {
+  animation-delay: 18.52s;
+}
+.stagger-6 {
+  animation-delay: 22.22s;
+}
+.stagger-7 {
+  animation-delay: 25.92s;
+}
+.stagger-8 {
+  animation-delay: 29.63s;
+}
 
 #logo {
   z-index: 10000;
@@ -109,12 +147,16 @@
   top: 20px;
   max-width: 336px;
   width: 20vw;
-  cursor: pointer
+  cursor: pointer;
 }
 @media (max-width: 991px) {
   #logo {
     height: 100px;
     width: 300px;
+  }
+  #familyImage {
+    width: auto;
+    height: 30vh;
   }
 }
 @media (max-width: 576px) {

@@ -119,7 +119,11 @@ class CapabilitiesPage extends React.Component {
             <PanelTitle 
               titleId={"handgunPartsTitle"}
               panelTitle={asset.panel_title} 
-              colSpan={6} 
+              colSpan={{
+                xl: 8,
+                lg: 10,
+                md: 10
+              }} 
             />
             <div className="row no-gutters justify-content-center">
               <p className="explore-text d-none d-lg-block">Click Below to Explore</p>
@@ -155,11 +159,11 @@ class CapabilitiesPage extends React.Component {
               </div>
             </div>
             {this.state.activePartsPanel === 0 ? (
-              window.innerWidth > 992 
+              window.innerWidth > 991 
                 ? <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
                   : <HandgunPartsPanelMobile handgunsGroup={asset.handguns_group} />
             ) : (
-              window.innerWidth > 992
+              window.innerWidth > 991
                 ? <RiflePartsPanel sportingRiflesGroup={asset.sporting_rifles_group} />
                   : <RiflePartsPanelMobile handgunsGroup={asset.sporting_rifles_group} />
             )}
