@@ -79,3 +79,10 @@
     margin: 0;
   }
 }
+
+.active.carousel-item-left {
+  transform: translateX(calc(-100% - 120px))
+}
+.active.carousel-item-right {
+  transform: translateX(calc(100% + 120px)) !important
+}
