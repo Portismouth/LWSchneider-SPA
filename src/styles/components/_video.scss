@@ -17,3 +17,38 @@
     height: 28vmax;
   }
 }
+// gotta make the title look good
+#lw-break {
+  margin-left: auto;
+  margin-right: auto
+}
+@media screen and (min-width: 713px) {
+  #lw-break {
+    width: 70%
+  }
+}
+@media screen and (min-width: 624px) and (max-width: 712px) {
+  #lw-break {
+    width: 80%
+  }
+}
+@media screen and (min-width: 570px) and (max-width: 623px) {
+  #lw-break {
+    width: 90%
+  }
+}
+@media screen and (min-width: 420px) and (max-width: 512px) {
+  #lw-break {
+    width: 67%
+  }
+}
+@media screen and (min-width: 380px) and (max-width: 419px) {
+  #lw-break {
+    width: 75%
+  }
+}
+@media screen and (min-width: 348px) and (max-width: 379px) {
+  #lw-break {
+    width: 82%
+  }
+}

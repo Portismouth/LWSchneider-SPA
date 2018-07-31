@@ -115,7 +115,8 @@ class ValuesPage extends Component {
                 lg: 8,
                 md: 10
               }}
-              panelTitle={asset.panel_title} 
+              panelTitle={asset.panel_title}
+              titleId={'lw-break'}
             />
             <ValuesPageVideo videoSrc={asset.panel_video} />
           </div>
