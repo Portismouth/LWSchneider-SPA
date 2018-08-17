@@ -35,7 +35,7 @@ class MegaVideo extends React.Component {
           src={this.props.videoSrc}
         ></video>
         <div
-          className="mega-video-controller"
+          className="mega-video-controller modal-controller"
           onClick={this.toggleVideo}
         ></div>
       </div>
