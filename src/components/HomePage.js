@@ -10,6 +10,7 @@ import PanelText from './PanelText';
 import PanelTitle from './PanelTitle';
 import ScrollButton from './ScrollButton';
 import HomePageCarousel from './HomePageCarousel';
+import MegaVideo from './MegaVideo';
 import { revertWindstop, rotateOnce } from '../actions/windstop';
 import { setPanel } from '../actions/panel';
 
@@ -162,6 +163,12 @@ class HomePage extends React.Component {
           <PanelLink
             linkTo={asset.link_out.button_to}
             linkText={asset.link_out.button_text}
+          />
+        )}
+        {/* fullscreen video */}
+        {asset.panel_video && (
+          <MegaVideo
+            videoSrc={asset.panel_video}
           />
         )}
         {i === 5 && (
