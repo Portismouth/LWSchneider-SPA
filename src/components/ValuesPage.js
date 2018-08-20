@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { scaleWindstop } from '../actions/windstop';
 import { setPanel } from '../actions/panel';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 //Component Imports
 import Panel from './Panel';

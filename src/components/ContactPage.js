@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { scaleWindstop } from '../actions/windstop';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 //Component Imports
 import Panel from './Panel';

@@ -2,6 +2,8 @@ import React from 'react';
 // import _ from 'lodash';
 import { connect } from 'react-redux';
 import { scaleWindstop } from '../actions/windstop';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 //Component Imports
 import CapabilitiesPageCarousel from './CapabilitiesPageCarousel';

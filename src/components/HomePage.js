@@ -1,4 +1,6 @@
 import React from 'react';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 import { connect } from 'react-redux';
 

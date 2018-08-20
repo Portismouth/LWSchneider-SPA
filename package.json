@@ -20,6 +20,8 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.1.1",
     "css-loader": "^0.28.11",
+    "es6-promise": "^4.2.4",
+    "isomorphic-fetch": "^2.2.1",
     "live-server": "^1.2.0",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
