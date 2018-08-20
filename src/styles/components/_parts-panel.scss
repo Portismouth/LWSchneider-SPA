@@ -45,6 +45,14 @@ div#BoltCarrierGroupDiv {
   height: 25vh;
   align-self: center;
 }
+@media (min-width: 992px) {
+  #partsPanelButtonRow {
+    max-width: 725px;
+  }
+}
+#handgunPartShowcase {
+  max-width: 1200px;
+}
 @media (max-width: 576px) {
   
 }

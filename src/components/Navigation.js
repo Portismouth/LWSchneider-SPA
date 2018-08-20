@@ -66,6 +66,27 @@ class Navigation extends Component {
           </div>
           <Nav navbar>
             <NavItem>
+              {(window.location.pathname.search('/$') > -1) ?
+                <div
+                  className="nav-link is-active"
+                  onClick={e => {
+                    this.toggle(e)
+                    this.props.dispatch(setPanel(0))
+                  }}
+                >
+                  Home
+                </div>
+                :
+                <NavLink
+                  to="/"
+                  className="nav-link" 
+                  onClick={this.toggle}
+                >
+                  Home
+                </NavLink>
+              }
+            </NavItem>
+            <NavItem>
               {(window.location.pathname.search('/capabilities') > -1) ?
                 <div
                   className="nav-link is-active"
@@ -79,8 +100,7 @@ class Navigation extends Component {
                 :
                 <NavLink 
                   to="/capabilities" 
-                  className="nav-link" 
-                  // activeClassName="is-active" 
+                  className="nav-link"  
                   onClick={this.toggle}
                 >
                   Capabilities
@@ -101,8 +121,7 @@ class Navigation extends Component {
                 :
                 <NavLink 
                   to="/values" 
-                  className="nav-link" 
-                  // activeClassName="is-active" 
+                  className="nav-link"  
                   onClick={this.toggle}
                 >
                   Values

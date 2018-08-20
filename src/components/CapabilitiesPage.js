@@ -129,7 +129,7 @@ class CapabilitiesPage extends React.Component {
               <p className="explore-text d-none d-lg-block">Click Below to Explore</p>
             </div>
             <div className="row no-gutters justify-content-center">
-              <div className="col-lg-6">
+              <div id="partsPanelButtonRow" className="col-lg-6">
                 <div className="row no-gutters justify-content-between">
                   <div className="col-lg-auto col-6">
                     <button
