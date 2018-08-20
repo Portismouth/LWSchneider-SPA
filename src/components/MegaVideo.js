@@ -16,6 +16,9 @@ class MegaVideo extends React.Component {
     else this.player.current.pause()
     this.setState({active: !this.state.active})
   }
+  blank(e) {
+    e.stopPropagation()
+  }
   componentWillReceiveProps() {
     if (this.state.active) {
       this.player.current.pause()
@@ -26,18 +29,21 @@ class MegaVideo extends React.Component {
     // console.log(this.player)
     return (
       <div className={`row mega-video justify-content-center${this.state.active ? ' active' : ''}`}>
-        <button onClick={this.toggleVideo}>
-          Yo check out this video dawg
+        <button className="button--link" onClick={this.toggleVideo}>
+          See Our Video
         </button>
-        <video
-          ref={this.player}
-          onClick={this.toggleVideo}
-          src={this.props.videoSrc}
-        ></video>
-        <div
-          className="mega-video-controller modal-controller"
-          onClick={this.toggleVideo}
-        ></div>
+        <div className="mega-player" onClick={this.toggleVideo}>
+          <div className="vid-holder">
+            <video
+              ref={this.player}
+              onClick={this.blank}
+              poster="https://lwschneider.com/wp-content/themes/lws-theme/assets/img/VideoPreview.png"
+              src={this.props.videoSrc}
+              controls
+            ></video>
+            <div className="modal-controller"></div>
+          </div>
+        </div>
       </div>
     )
   }
