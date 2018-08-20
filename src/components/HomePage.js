@@ -12,7 +12,7 @@ import ScrollButton from './ScrollButton';
 import HomePageCarousel from './HomePageCarousel';
 import MegaVideo from './MegaVideo';
 import { revertWindstop, rotateOnce } from '../actions/windstop';
-import { setPanel } from '../actions/panel';
+import { setPanel, setBackground } from '../actions/panel';
 
 class HomePage extends React.Component {
   state = {
@@ -24,6 +24,8 @@ class HomePage extends React.Component {
     lastScrollPos: 0,
     didScroll: 0,
     throttleSwitch: 0,
+    autoScroll: 80,
+    mouse: false,
     touchX: null,
     touchY: null
   };
@@ -40,6 +42,8 @@ class HomePage extends React.Component {
             isLoaded: true,
             assets: result.acf['home_panel_repeater']
           });
+          let background = window.innerWidth < 576 ? result.acf['home_panel_repeater'][0].panel_image_mobile : result.acf['home_panel_repeater'][0].panel_image
+          this.props.dispatch(setBackground(background))
         },
         error => {
           console.log(error);
@@ -54,7 +58,13 @@ class HomePage extends React.Component {
       if (this.state.didScroll !== 0) {
         this.handleChangePanels(this.state.didScroll)
         this.handleRotateWindstop(this.state.didScroll)
-        this.setState({didScroll: 0})
+        this.setState({didScroll: 0, autoScroll: 80})
+      } else if (!(this.state.isMobile || this.state.mouse)) {
+        if (this.state.autoScroll > 0) this.setState({autoScroll: this.state.autoScroll - 1})
+        else {
+          this.handleChangePanels(1)
+          this.handleRotateWindstop(1)
+        }
       }
     }, 100)
     window.innerWidth < 992 && this.setState({
@@ -68,6 +78,7 @@ class HomePage extends React.Component {
   }
   componentWillUnmount() {
     clearInterval(this.interval)
+    this.props.dispatch(setBackground(null))
   }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
@@ -96,13 +107,27 @@ class HomePage extends React.Component {
     })
   }
   handleChangePanels = direction => {
-    if (direction > 0 && this.props.panel.index < this.state.assets.length - 1) {
-      this.props.dispatch(setPanel(this.props.panel.index + 1));
-      this.setState({throttleSwitch: 12});
-    } else if (direction < 0 && this.props.panel.index > 0) {
-      this.props.dispatch(setPanel(this.props.panel.index - 1));
-      this.setState({throttleSwitch: 12})
+    let target, background
+    if (direction > 0) {
+      if (this.props.panel.index < this.state.assets.length - 1) {
+        target = this.props.panel.index + 1
+        background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image
+      } else {
+        target = 0
+        background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image
+      }
+    } else if (direction < 0) {
+      if (this.props.panel.index > 0) {
+        target = this.props.panel.index - 1
+        background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image
+      } else {
+        target = this.state.assets.length - 1
+        background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image
+      }
     }
+    this.props.dispatch(setPanel(target))
+    this.props.dispatch(setBackground(background))
+    this.setState({throttleSwitch: 12, autoScroll: 80})
   };
   handleRotateWindstop = direction => {
     this.props.dispatch(rotateOnce(direction));
@@ -111,6 +136,14 @@ class HomePage extends React.Component {
     this.setState({
       buttonText: text
     })
+  }
+  handleMouseEnter = () => {
+    // console.log('mouseEnter')
+    this.setState({mouse: true})
+  }
+  handleMouseLeave = () => {
+    // console.log('mouseLeave')
+    this.setState({mouse: false})
   }
   render() {
     // console.log('props', this.props)
@@ -125,11 +158,6 @@ class HomePage extends React.Component {
             : 'homepage-panel inactive'
         }
         key={i + 1}
-        style={
-          window.innerWidth < 576 
-          ? { backgroundImage: `url(${asset.panel_image_mobile})` }
-          : { backgroundImage: `url(${asset.panel_image})` }
-        }
       > 
         {i === 0 ? (
           <div>
@@ -182,18 +210,20 @@ class HomePage extends React.Component {
         onWheel={this.handleScroll}
         onTouchStart={this.handleTouchStart}
         onTouchEnd={this.handleTouchEnd}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
       >
-        {(panelIndex !== 0) ?
+        {/* {(panelIndex !== 0) ? */}
           <ScrollButton
             arrowUp={true}
             buttonText={panelIndex === 1 && "Go Back"}
             handleRotateWindstop={() => this.handleRotateWindstop(-1)}
             handleChangePanels={() => this.handleChangePanels(-1)}
           />
-          : null
-        }
+          {/* : null
+        } */}
         {panels}
-        {(panelIndex < assets.length - 1) ?
+        {/* {(panelIndex < assets.length - 1) ? */}
           <ScrollButton
             buttonText={
               (panelIndex === 0) ? "Scroll" : ''
@@ -201,8 +231,8 @@ class HomePage extends React.Component {
             handleRotateWindstop={() => this.handleRotateWindstop(1)}  
             handleChangePanels={() => this.handleChangePanels(1)}
           />
-          : null
-        }
+          {/* : null
+        } */}
       </div>
     );
   }

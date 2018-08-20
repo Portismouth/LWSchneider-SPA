@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
+import DynamicBackground from '../components/DynamicBackground';
 import WindStop from '../components/WindStop';
 import Overlay from '../components/Overlay';
 //Page Imports
@@ -21,6 +22,7 @@ const AppRouter = () => (
     <div className="container-fluid">
       <Logo imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
       <Navigation />
+      <DynamicBackground />
       <WindStop imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg" />
       <Switch location={location} >
         <Route path="/" component={HomePage} exact={true} />
