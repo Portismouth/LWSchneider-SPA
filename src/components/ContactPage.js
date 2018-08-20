@@ -5,6 +5,7 @@ import { scaleWindstop } from '../actions/windstop';
 
 //Component Imports
 import Panel from './Panel';
+import PanelAddress from './PanelAddress';
 import PanelTitle from './PanelTitle';
 import PanelText from './PanelText';
 import PanelContact from './PanelContact';
@@ -52,6 +53,7 @@ class ContactPage extends Component {
           <PanelText
             panelText={this.state.panelText}
           />
+          <PanelAddress />
           <PanelContact />
           <div className="row no-gutters justify-content-center mt-4 mt-lg-3">
             <p className="panel-text text-center">Want to join our proud team of collaborators?</p>
