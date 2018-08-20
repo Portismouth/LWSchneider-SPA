@@ -12,6 +12,10 @@ class InteractiveCallout extends React.Component {
   toggle() {
     this.setState({open: !this.state.open})
   }
+  blank(e) {
+    // no action happens if you click image itself
+    e.stopPropagation()
+  }
   componentWillReceiveProps() {
     if (this.state.open) this.setState({open: false})
   }
@@ -21,14 +25,15 @@ class InteractiveCallout extends React.Component {
         <span>{this.props.text}</span>
         {this.state.open && (
           <div className="callout-image">
-            <img
-              src={this.props.image}
-              alt={this.props.text}
-            />
+            <div className="img-holder">
+              <img
+                onClick={this.blank}
+                src={this.props.image}
+                alt={this.props.text}
+              />
+              <div className="modal-controller"></div>
+            </div>
           </div>
-        )}
-        {this.state.open && (
-          <div className="modal-controller"></div>
         )}
       </div>
     )
