@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import { setImage } from '../actions/overlay'
 
-class InteractiveCallout extends React.Component {
+class Overlay extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
   overlay: state.overlay
 })
 
-export default connect(mapStateToProps)(InteractiveCallout)
+export default connect(mapStateToProps)(Overlay)

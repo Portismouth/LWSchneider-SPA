@@ -22,7 +22,7 @@ class WindStop extends React.Component {
       height: this.state.height,
       transform: 'rotate(' + this.state.rotate + 'deg)'
     };
-    console.log(window.location.pathname.search('/contact'))
+    // console.log(window.location.pathname.search('/contact'))
     return (
       <div 
         id="windStop"

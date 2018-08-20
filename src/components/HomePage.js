@@ -12,7 +12,7 @@ import ScrollButton from './ScrollButton';
 import HomePageCarousel from './HomePageCarousel';
 import MegaVideo from './MegaVideo';
 import { revertWindstop, rotateOnce } from '../actions/windstop';
-import { setPanel } from '../actions/panel';
+import { setPanel, setBackground } from '../actions/panel';
 
 class HomePage extends React.Component {
   state = {
@@ -40,6 +40,8 @@ class HomePage extends React.Component {
             isLoaded: true,
             assets: result.acf['home_panel_repeater']
           });
+          let background = window.innerWidth < 576 ? result.acf['home_panel_repeater'][0].panel_image_mobile : result.acf['home_panel_repeater'][0].panel_image
+          this.props.dispatch(setBackground(background))
         },
         error => {
           console.log(error);
@@ -68,6 +70,7 @@ class HomePage extends React.Component {
   }
   componentWillUnmount() {
     clearInterval(this.interval)
+    this.props.dispatch(setBackground(null))
   }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
@@ -97,11 +100,17 @@ class HomePage extends React.Component {
   }
   handleChangePanels = direction => {
     if (direction > 0 && this.props.panel.index < this.state.assets.length - 1) {
-      this.props.dispatch(setPanel(this.props.panel.index + 1));
+      let target = this.props.panel.index + 1;
+      this.props.dispatch(setPanel(target));
+      let background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image;
+      this.props.dispatch(setBackground(background));
       this.setState({throttleSwitch: 12});
     } else if (direction < 0 && this.props.panel.index > 0) {
-      this.props.dispatch(setPanel(this.props.panel.index - 1));
-      this.setState({throttleSwitch: 12})
+      let target = this.props.panel.index - 1;
+      this.props.dispatch(setPanel(target));
+      let background = window.innerWidth < 576 ? this.state.assets[target].panel_image_mobile : this.state.assets[target].panel_image;
+      this.props.dispatch(setBackground(background));
+      this.setState({throttleSwitch: 12});
     }
   };
   handleRotateWindstop = direction => {
@@ -125,11 +134,11 @@ class HomePage extends React.Component {
             : 'homepage-panel inactive'
         }
         key={i + 1}
-        style={
-          window.innerWidth < 576 
-          ? { backgroundImage: `url(${asset.panel_image_mobile})` }
-          : { backgroundImage: `url(${asset.panel_image})` }
-        }
+        // style={
+        //   window.innerWidth < 576 
+        //   ? { backgroundImage: `url(${asset.panel_image_mobile})` }
+        //   : { backgroundImage: `url(${asset.panel_image})` }
+        // }
       > 
         {i === 0 ? (
           <div>

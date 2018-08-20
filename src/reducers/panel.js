@@ -1,5 +1,6 @@
 const initial = {
-  index: 0
+  index: 0,
+  image: null
 }
 
 export default (state = initial, action) => {
@@ -8,6 +9,11 @@ export default (state = initial, action) => {
       return {
         ...state,
         index: action.index
+      }
+    case 'SET_BACKGROUND':
+      return {
+        ...state,
+        image: action.image
       }
     default:
       return state
