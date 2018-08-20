@@ -5,6 +5,7 @@ import { scaleWindstop } from '../actions/windstop';
 
 //Component Imports
 import CapabilitiesPageCarousel from './CapabilitiesPageCarousel';
+import CapabilitiesPageHomeCarousel from './CapabilitiesPageHomeCarousel';
 import CapabilitesPageListings from './CapabiltiesPageListings';
 import Panel from './Panel';
 import PanelTitle from './PanelTitle';
@@ -109,24 +110,30 @@ class CapabilitiesPage extends React.Component {
         {/* Home Panel */}
         {i === 0 && (
           <div className="content-wrapper">
-            <PanelTitle panelTitle={asset.panel_title} />
+            <CapabilitiesPageHomeCarousel images={asset.panel_images_for_carousel} />
+            <PanelTitle 
+              panelTitle={asset.panel_title}
+              titleId={'capHomeTitle'} 
+            />
             <PanelText panelText={asset.panel_text} />
           </div>
         )}
         {/* Parts Panel */}
         {i === 1 && (
           <div className="content-wrapper">
-            <PanelTitle 
-              titleId={"handgunPartsTitle"}
-              panelTitle={asset.panel_title} 
+            <PanelTitle
+              titleId={'handgunPartsTitle'}
+              panelTitle={asset.panel_title}
               colSpan={{
                 xl: 8,
                 lg: 10,
                 md: 10
-              }} 
+              }}
             />
             <div className="row no-gutters justify-content-center">
-              <p className="explore-text d-none d-lg-block">Click Below to Explore</p>
+              <p className="explore-text d-none d-lg-block">
+                Click Below to Explore
+              </p>
             </div>
             <div className="row no-gutters justify-content-center">
               <div id="partsPanelButtonRow" className="col-lg-6">
@@ -159,13 +166,21 @@ class CapabilitiesPage extends React.Component {
               </div>
             </div>
             {this.state.activePartsPanel === 0 ? (
-              window.innerWidth > 991 
-                ? <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
-                  : <HandgunPartsPanelMobile handgunsGroup={asset.handguns_group} />
+              window.innerWidth > 991 ? (
+                <HandgunPartsPanel handgunsGroup={asset.handguns_group} />
+              ) : (
+                <HandgunPartsPanelMobile
+                  handgunsGroup={asset.handguns_group}
+                />
+              )
+            ) : window.innerWidth > 991 ? (
+              <RiflePartsPanel
+                sportingRiflesGroup={asset.sporting_rifles_group}
+              />
             ) : (
-              window.innerWidth > 991
-                ? <RiflePartsPanel sportingRiflesGroup={asset.sporting_rifles_group} />
-                  : <RiflePartsPanelMobile handgunsGroup={asset.sporting_rifles_group} />
+              <RiflePartsPanelMobile
+                handgunsGroup={asset.sporting_rifles_group}
+              />
             )}
           </div>
         )}
@@ -173,14 +188,14 @@ class CapabilitiesPage extends React.Component {
         {i === 2 && (
           <div className="content-wrapper">
             <PanelTitle panelTitle={asset.panel_title} />
-            <CapabilitiesPageCarousel galleryImages={asset.gallery_images} />
+            <CapabilitiesPageCarousel
+              galleryImages={asset.gallery_images}
+            />
             <PanelText panelText={asset.panel_text} />
           </div>
         )}
         {i === 3 && (
-          <div 
-            id="capabilitiesListing"
-            className="content-wrapper">
+          <div id="capabilitiesListing" className="content-wrapper">
             <CapabilitesPageListings
               pageListing={asset.capabilities_listings}
             />

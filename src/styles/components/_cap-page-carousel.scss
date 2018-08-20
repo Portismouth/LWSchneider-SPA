@@ -23,7 +23,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 1000000
+  z-index: 1000000;
 }
 .items {
   position: absolute;
@@ -54,11 +54,20 @@
   -moz-transform: scale(0.75);
   transform: scale(0.75);
 }
+// Home panel carousel
+#capPageHomeCarousel .carousel {
+  position: relative;
+  height: 32vh;
+}
+.cap-carousel-img {
+  height: 30vh;
+  width: auto;
+}
 @media (max-width: 576px) {
   #capPageCarousel {
-  height: 150px;
-  div {
-    height: 150px
+    height: 150px;
+    div {
+      height: 150px;
+    }
   }
-}
 }

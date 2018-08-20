@@ -28,6 +28,9 @@ h1#aboutHomePanelTitle {
   font-size: 5.25vh;
   line-height: 6.25vh;
 }
+#capHomeTitle {
+  margin: 1vh 0;
+}
 @media (max-width: 991px) {
   #valuesHomeTitle {
     font-size: 3.75vmax;
