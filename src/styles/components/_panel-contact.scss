@@ -1,10 +1,23 @@
 .panel-contact {
   color: #fefffe;
-  font-family: Metropolis;
+  font-family: $Metropolis;
   font-size: 20px;
   font-weight: 200;
   line-height: 22px;
   text-align: center;
+}
+.panel-address {
+  color: #fefffe;
+  font-family: $Metropolis;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    color: $link-yellow;
+    text-decoration: none;
+  }
 }
 .contact-pipe {
   font-size: 0.95vmax;
