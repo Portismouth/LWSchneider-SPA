@@ -64,22 +64,14 @@ export default class PartsPanel extends Component {
         </div>
       </div>
     ));
-    return (
-      <div className="row no-gutters justify-content-center py-5">
-        <div className="col-10 position-relative">
+    return <div className="row no-gutters justify-content-center py-5">
+        <div id="handgunPartShowcase" className="col-10 position-relative">
           <div className="row no-gutters justify-content-center">
-            <img
-              className="parts-image invisible"
-              src={handgunsGroup[0]['part_image']}
-              alt="parts"
-            />
+            <img className="parts-image invisible" src={handgunsGroup[0]['part_image']} alt="parts" />
             {handgunPanels}
           </div>
-          <div className="row no-gutters justify-content-center">
-
-          </div>
+          <div className="row no-gutters justify-content-center" />
         </div>
-      </div>
-    );
+      </div>;
   }
 }

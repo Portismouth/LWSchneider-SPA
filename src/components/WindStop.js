@@ -23,7 +23,10 @@ class WindStop extends React.Component {
       transform: 'rotate(' + this.state.rotate + 'deg)'
     };
     return (
-      <div id="windStop">
+      <div 
+        id="windStop"
+        style={this.state.rotating ? {'z-index': 0} : {}}
+      >
         <img
           className={this.state.rotating ? 'rotating' : ''}
           style={{ ...styles}}
