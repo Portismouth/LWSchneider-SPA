@@ -1,29 +1,51 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-import InteractiveCallout from './InteractiveCallout'
+import {setImage} from '../actions/overlay'
 
-const PartCallouts = (props) => {
-  const callouts = props.callouts.map((callout, i) => (
-    <li 
-      key={callout.callout}
-    >
-      {(callout.callout_image) ?
-        <InteractiveCallout
-          text={callout.callout}
-          image={callout.callout_image}
-        />
-        : callout.callout
-      }
-    </li>
-  ))
-  return (
-    <ul
-      className="part-callouts" 
-      style={props.style}
-    >
-      {callouts}
-    </ul>
-  )
+class PartCallouts extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+
+    this.open = this.open.bind(this)
+  }
+  open(e) {
+    this.props.dispatch(setImage(this.props.callouts[e.target.id].callout_image))
+  }
+  componentWillUnmount() {
+    if (this.props.overlay.image) this.props.dispatch(setImage(null))
+  }
+  render() {
+    const callouts = this.props.callouts.map((callout, i) => (
+      <li 
+        key={callout.callout}
+      >
+        {(callout.callout_image) ?
+          <div
+            id={i}
+            className="interactive-callout"
+            onClick={this.open}
+          >
+            {callout.callout}
+          </div>
+          : callout.callout
+        }
+      </li>
+    ))
+    return (
+      <ul
+        className="part-callouts" 
+        style={this.props.style}
+      >
+        {callouts}
+      </ul>
+    )
+  }
 }
 
-export default PartCallouts;
+const mapStateToProps = state => ({
+  overlay: state.overlay
+})
+
+export default connect(mapStateToProps)(PartCallouts);

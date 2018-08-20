@@ -12,10 +12,11 @@ import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import panel from './reducers/panel';
+import overlay from './reducers/overlay';
 import windstop from './reducers/windstop'; 
 
 const allReducers = combineReducers({
-  windstop, panel
+  windstop, panel, overlay
 })
 
 const store = createStore(

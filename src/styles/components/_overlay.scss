@@ -1,0 +1,32 @@
+.callout-image {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+.callout-image .img-holder {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 30px);
+  max-height: calc(100% - 30px)
+}
+
+.callout-image img {
+  opacity: .95
+}
+
+.modal-controller {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-image: url("http://lws.impactpreview.com/wp-content/uploads/2018/08/blue-x-out.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer
+}
