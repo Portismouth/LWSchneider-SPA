@@ -21,7 +21,7 @@ const PanelText = (props) => {
     } 
   }
   return (
-    <div className="row no-gutters justify-content-center mt-2 mt-lg-3">
+    <div className="row no-gutters justify-content-center mt-2">
       <div 
         className={
           colClasses !== undefined
