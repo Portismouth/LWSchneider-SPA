@@ -1,6 +1,7 @@
-export const setImage = image => ({
+export const setImage = (image, options) => ({
   type: 'SET_IMAGE',
-  image
+  image,
+  options: options || {}
 })
 
 export const setVideo = video => ({

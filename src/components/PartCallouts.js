@@ -11,7 +11,7 @@ class PartCallouts extends React.Component {
     this.open = this.open.bind(this)
   }
   open(e) {
-    this.props.dispatch(setImage(this.props.callouts[e.target.id].callout_image))
+    this.props.dispatch(setImage(this.props.callouts[e.target.id].callout_image, {translucent: true}))
   }
   componentWillUnmount() {
     if (this.props.overlay.image) this.props.dispatch(setImage(null))

@@ -22,6 +22,7 @@ class Overlay extends React.Component {
     e.stopPropagation()
   }
   render() {
+    const options = this.props.overlay.options
     if (this.props.overlay.image) {
       return (
         <div
@@ -31,10 +32,13 @@ class Overlay extends React.Component {
           <div className="img-holder">
             <img
               onClick={this.blank}
+              className={options.translucent ? 'translucent' : ''}
               src={this.props.overlay.image}
               alt={this.props.text}
             />
-            <div className="modal-controller"></div>
+            <div
+              className={options.controllerClass ? `modal-controller ${options.controllerClass}` : 'modal-controller'}
+            ></div>
           </div>
         </div>
       )

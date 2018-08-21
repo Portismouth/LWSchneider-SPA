@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { setImage } from '../actions/overlay';
+
 class CapabilitiesPageCarousel extends Component {
   constructor(props) {
     super(props);
@@ -65,7 +67,8 @@ class CapabilitiesPageCarousel extends Component {
     });
   }
   toggleMagnify(e) {
-    this.setState({magnify: !this.state.magnify})
+    // this.setState({magnify: !this.state.magnify})
+    this.props.dispatch(setImage(this.props.galleryImages[this.state.frontItem].gallery_image, {controllerClass: 'magnify'}))
   }
   closeMagnify() {
     if (this.state.magnify) this.setState({magnify: false})
