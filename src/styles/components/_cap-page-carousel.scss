@@ -42,9 +42,6 @@
 // @media screen and (min-width: 992px) and (max-width: 1420px) {
 //   .parts-gallery-image + .modal-controller {display: none}
 // }
-.modal-controller.magnify {
-  background-image: url("http://lws.impactpreview.com/wp-content/uploads/2018/08/Expand-Arrows.svg");
-}
 .click-shield {
   width: 100%;
   height: 100%;
@@ -83,7 +80,7 @@
 // Home panel carousel
 #capPageHomeCarousel .carousel {
   position: relative;
-  height: 32vh;
+  height: 32vh
 }
 .cap-carousel-img {
   height: 30vh;

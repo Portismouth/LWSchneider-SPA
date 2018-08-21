@@ -77,7 +77,7 @@ export default class AboutPageCarousel extends Component {
         onTouchEnd={this.handleTouchEnd}
       >
         <div className="col-11 col-lg-6">
-          <div id="capPageHomeCarousel" className="row no-gutters justify-content-center">
+          <div id="capPageHomeCarousel" className="row no-gutters justify-content-center pad-bot-15">
             <Carousel
               activeIndex={activeIndex}
               next={this.next}

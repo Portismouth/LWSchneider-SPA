@@ -115,7 +115,7 @@ class CapabilitiesPage extends React.Component {
               panelTitle={asset.panel_title}
               titleId={'capHomeTitle'} 
             />
-            <PanelText panelText={asset.panel_text} />
+            <PanelText panelText={asset.panel_text} extraClass="pad-bot-15" />
           </div>
         )}
         {/* Parts Panel */}

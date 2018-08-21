@@ -68,7 +68,7 @@ class CapabilitiesPageCarousel extends Component {
   }
   toggleMagnify(e) {
     // this.setState({magnify: !this.state.magnify})
-    this.props.dispatch(setImage(this.props.galleryImages[this.state.frontItem].gallery_image, {controllerClass: 'magnify'}))
+    this.props.dispatch(setImage(this.props.galleryImages[this.state.frontItem].gallery_image))
   }
   closeMagnify() {
     if (this.state.magnify) this.setState({magnify: false})
