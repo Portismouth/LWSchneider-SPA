@@ -39,6 +39,12 @@
   height: 30px !important;
   // background-image:
 }
+// @media screen and (min-width: 992px) and (max-width: 1420px) {
+//   .parts-gallery-image + .modal-controller {display: none}
+// }
+.modal-controller.magnify {
+  background-image: url("http://lws.impactpreview.com/wp-content/uploads/2018/08/blue-x-out.svg");
+}
 .click-shield {
   width: 100%;
   height: 100%;
