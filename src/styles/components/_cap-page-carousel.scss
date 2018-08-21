@@ -16,8 +16,28 @@
   height: 100%;
   width: 100%;
 }
-#capPageCarousel > div.front:hover {
-  transform: scale(1.05);
+// #capPageCarousel > div.front:hover {
+//   transform: scale(1.05);
+// }
+#capPageCarousel .magnify {
+  transform: scale(2);
+  max-width: 50%
+
+  // width: 1000px;
+  // height: auto;
+  // max-width: 100%;
+  // transform: translateY(-25%)
+
+  // position: fixed;
+  // height: 100%;
+  // width: 100%;
+  // top: 0;
+  // background: none;
+  // transition-duration: 0s
+}
+.parts-gallery-image + .modal-controller {
+  height: 30px !important;
+  // background-image:
 }
 .click-shield {
   width: 100%;
