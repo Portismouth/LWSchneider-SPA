@@ -10,9 +10,9 @@ import PanelText from './PanelText';
 import PanelTitle from './PanelTitle';
 import ScrollButton from './ScrollButton';
 import HomePageCarousel from './HomePageCarousel';
-import MegaVideo from './MegaVideo';
 import { revertWindstop, rotateOnce } from '../actions/windstop';
 import { setPanel, setBackground } from '../actions/panel';
+import { setVideo } from '../actions/overlay';
 
 class HomePage extends React.Component {
   state = {
@@ -59,7 +59,7 @@ class HomePage extends React.Component {
         this.handleChangePanels(this.state.didScroll)
         this.handleRotateWindstop(this.state.didScroll)
         this.setState({didScroll: 0, autoScroll: 80})
-      } else if (!(this.state.isMobile || this.state.mouse)) {
+      } else if (!(this.state.isMobile || this.state.mouse || this.props.overlay.video)) {
         if (this.state.autoScroll > 0) this.setState({autoScroll: this.state.autoScroll - 1})
         else {
           this.handleChangePanels(1)
@@ -79,6 +79,7 @@ class HomePage extends React.Component {
   componentWillUnmount() {
     clearInterval(this.interval)
     this.props.dispatch(setBackground(null))
+    this.props.dispatch(setVideo(null))
   }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
@@ -145,6 +146,11 @@ class HomePage extends React.Component {
     // console.log('mouseLeave')
     this.setState({mouse: false})
   }
+  openVideo = e => {
+    // expecting e.target.id of 'video-' + assets index
+    let index = Number(e.target.id.slice(6))
+    this.props.dispatch(setVideo(this.state.assets[index].panel_video))
+  }
   render() {
     // console.log('props', this.props)
     const assets = this.state.assets;
@@ -195,9 +201,11 @@ class HomePage extends React.Component {
         )}
         {/* fullscreen video */}
         {asset.panel_video && (
-          <MegaVideo
-            videoSrc={asset.panel_video}
-          />
+          <div className="row mega-video justify-content-center">
+            <button id={`video-${i}`} className="button--link" onClick={this.openVideo}>
+              See Our Video
+            </button>
+          </div>
         )}
         {i === 5 && (
           <PanelContact />
@@ -240,7 +248,8 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (state) => ({
   windstop: state.windstop,
-  panel: state.panel
+  panel: state.panel,
+  overlay: state.overlay
 });
 
 export default connect(mapStateToProps)(HomePage);

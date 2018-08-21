@@ -52,31 +52,3 @@
     width: 82%
   }
 }
-
-// video on homepage
-.mega-video.active .mega-player {
-  display: block
-}
-.mega-player {
-  display: none;
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%
-}
-.mega-player .vid-holder {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: calc(100% - 30px);
-  max-height: calc(100% - 30px)
-}
-.mega-player .vid-holder video {
-  max-width: 100%
-}
-.mega-player .modal-controller {
-  background-image: url("http://lws.impactpreview.com/wp-content/uploads/2018/08/yellow-x-out.svg")
-}

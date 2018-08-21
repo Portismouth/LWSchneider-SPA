@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+// Curently this component is not in use
+
 class MegaVideo extends React.Component {
   constructor(props) {
     super(props)
