@@ -23,9 +23,12 @@ class Navigation extends Component {
   }
   render() {
     // console.log(Collapse.prototype);
+    // console.log('where am i', this.props.location)
+    let pathname = this.props.location.pathname
+    if (pathname.length > 1 && pathname.slice(-1) == '/') pathname = pathname.slice(0, -1)
     return (
       <Navbar className={this.state.isOpen ? '' : 'retracted'} light expand="lg">
-        {(window.location.pathname == '/') ?
+        {(pathname == '/') ?
           <div
             className="d-lg-none"
             onClick={e => {
@@ -66,7 +69,7 @@ class Navigation extends Component {
           </div>
           <Nav navbar>
             <NavItem>
-              {(window.location.pathname.search('.com/$') > -1) ?
+              {(pathname == '/') ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {
@@ -87,7 +90,7 @@ class Navigation extends Component {
               }
             </NavItem>
             <NavItem>
-              {(window.location.pathname.search('/capabilities') > -1) ?
+              {(pathname == '/capabilities') ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {
@@ -108,7 +111,7 @@ class Navigation extends Component {
               }
             </NavItem>
             <NavItem>
-              {(window.location.pathname.search('/values') > -1) ?
+              {(pathname == '/values') ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {
@@ -129,7 +132,7 @@ class Navigation extends Component {
               }
             </NavItem>
             <NavItem>
-              {(window.location.pathname.search('/about') > -1) ?
+              {(pathname == '/about') ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {
@@ -151,7 +154,7 @@ class Navigation extends Component {
               }
             </NavItem>
             <NavItem>
-              {(window.location.pathname.search('/contact') > -1) ?
+              {(pathname == '/contact') ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {
