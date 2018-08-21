@@ -1,5 +1,6 @@
 const initial = {
-  image: null
+  image: null,
+  video: null
 }
 
 export default (state = initial, action) => {
@@ -8,6 +9,11 @@ export default (state = initial, action) => {
       return {
         ...state,
         image: action.image
+      }
+    case 'SET_VIDEO':
+      return {
+        ...state,
+        video: action.video
       }
     default:
       return state
