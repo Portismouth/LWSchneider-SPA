@@ -66,7 +66,7 @@ class Navigation extends Component {
           </div>
           <Nav navbar>
             <NavItem>
-              {(window.location.pathname.search('/$') > -1) ?
+              {(window.location.pathname.search('.com/$') > -1) ?
                 <div
                   className="nav-link is-active"
                   onClick={e => {

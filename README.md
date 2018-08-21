@@ -21,6 +21,6 @@ All done via CSS.
 ```
 npm run build
 ```
-* Copy over /src and /public to lws/react
+* Copy over public/bundle.js
 * #2ez
 
