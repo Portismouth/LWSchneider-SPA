@@ -74,6 +74,7 @@ button:focus {
   padding: 0 20px;
   text-transform: uppercase;
   transition: 0.25s;
+  cursor: pointer
 }
 .button--parts:hover {
   background-color: $white;

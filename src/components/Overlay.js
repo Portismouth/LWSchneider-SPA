@@ -37,8 +37,7 @@ class Overlay extends React.Component {
               alt={this.props.text}
             />
             <div
-              // className={options.controllerClass ? `modal-controller ${options.controllerClass}` : 'modal-controller'}
-              className="modal-controller"
+              className={options.controllerClass ? `modal-controller ${options.controllerClass}` : 'modal-controller'}
             ></div>
           </div>
         </div>
