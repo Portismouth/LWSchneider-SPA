@@ -18,10 +18,10 @@ const PanelText = (props) => {
         'col-10',
         `col-lg-${props.colSpan}`
       ]
-    } 
+    }
   }
   return (
-    <div className="row no-gutters justify-content-center mt-2">
+    <div className={`row no-gutters justify-content-center mt-2 ${props.extraClass || ''}`}>
       <div 
         className={
           colClasses !== undefined

@@ -21,7 +21,7 @@ const AppRouter = () => (
   <BrowserRouter>
     <div className="container-fluid">
       <Logo imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
-      <Navigation />
+      <Navigation location={location} />
       <DynamicBackground />
       <WindStop imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg" />
       <Switch location={location} >
