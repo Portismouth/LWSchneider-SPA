@@ -67,7 +67,7 @@ export default class PartsPanel extends Component {
     ));
     return (
       <div className="row no-gutters justify-content-center py-5">
-        <div className="col-10 position-relative">
+        <div id="riflePartsShowcase" className="col-10 position-relative">
           <div className="row no-gutters justify-content-center">
             <img
               className="parts-image invisible"
