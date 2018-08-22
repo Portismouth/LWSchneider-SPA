@@ -137,8 +137,8 @@ class CapabilitiesPage extends React.Component {
             </div>
             <div className="row no-gutters justify-content-center">
               <div id="partsPanelButtonRow" className="col-lg-6">
-                <div className="row no-gutters justify-content-between">
-                  <div className="col-lg-auto col-6">
+                <div className="row no-mobile-gutters">
+                  <div className="col-6" align="right">
                     <button
                       className={
                         this.state.activeButton === 0
@@ -150,7 +150,7 @@ class CapabilitiesPage extends React.Component {
                       Handguns
                     </button>
                   </div>
-                  <div className="col-lg-auto col-6">
+                  <div className="col-6">
                     <button
                       className={
                         this.state.activeButton === 1

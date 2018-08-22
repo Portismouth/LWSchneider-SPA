@@ -61,3 +61,9 @@ div#BoltCarrierGroupDiv {
   text-decoration: underline;
   cursor: pointer
 }
+@media screen and (max-width: 991px) {
+  .no-mobile-gutters > * {
+    padding-left: 0;
+    padding-right: 0
+  }
+}
