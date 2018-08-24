@@ -203,7 +203,7 @@ class HomePage extends React.Component {
         {asset.panel_video && (
           <div className="row mega-video justify-content-center">
             <button id={`video-${i}`} className="button--link" onClick={this.openVideo}>
-              See Our Video
+              Take a Look Inside
             </button>
           </div>
         )}

@@ -31,9 +31,10 @@
   li {
     color: $white;
     font-family: $Ashbury;
-    font-size: 1vmax;
     font-weight: 300;
-    line-height: 1.7vmax;
+    font-size: 14px;
+    // font-size: 1vmax;
+    // line-height: 1.7vmax;
   }
 }
 @media (max-width: 991px) {

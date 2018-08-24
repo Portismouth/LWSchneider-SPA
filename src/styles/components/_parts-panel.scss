@@ -1,5 +1,5 @@
 div#SlideDiv {
-  left: 0;
+  left: calc(((100% - 700px) * .4) - 48px); // 100% is ~700px at 992px, 1000px at >1500px (trust me, it works)
   top: 5%;
 }
 div#FrameDiv {
@@ -8,28 +8,31 @@ div#FrameDiv {
 }
 div#BarrelDiv {
   top: 0;
-  right: -10%;
+  right: -6%;
+}
+@media screen and (max-width: 1199px) {
+  div#BarrelDiv {
+    right: -64px
+  }
 }
 div#ButtStockAssemblyDiv {
-  left: -10%;
+  left: calc(((100% - 700px) * .2) - 48px);
+  top: 1%
 }
 #Butt_Stock_AssemblyButton {
-  padding-top: 10px
+  white-space: nowrap;
 }
 div#FrontSightDiv {
-  right: -5%;
+  right: 4%;
   top: 15%;
 }
 div#UpperReceiverDiv {
   right: 25%;
-  top: -7%;
-}
-#Upper_ReceiverButton {
-  padding-top: 15px
+  top: -6%;
 }
 div#LowerReceiverDiv {
-  left: 5%;
-  bottom: 0;
+  left: 10%;
+  bottom: -5%;
 }
 div#BoltCarrierGroupDiv {
   bottom: -45%;
