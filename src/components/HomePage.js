@@ -81,6 +81,11 @@ class HomePage extends React.Component {
     this.props.dispatch(setBackground(null))
     this.props.dispatch(setVideo(null))
   }
+  componentWillReceiveProps(newProps) {
+    // This is to address bug where closing the video doesn't emit a mouseenter event,
+    // so the autoscroll fails to register the mouse until a mouseleave + mouseenter happens
+    if (this.props.overlay.video && !newProps.overlay.video) this.setState({mouse: true})
+  }
   handleScroll = e => {
     // console.log(Object.assign({}, e))
     if (this.state.didScroll === 0 && this.state.throttleSwitch === 0) this.setState({didScroll: e.deltaY})
