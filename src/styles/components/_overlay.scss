@@ -41,6 +41,11 @@
   top: 0;
   right: calc(50% - 250px * .75 - 83.333% * .2)
 }
+@media screen and (max-width: 991px) {
+  .gallery-holder > .modal-controller {
+    right: 10px
+  }
+}
 
 .modal-controller.smaller {
   width: 25px;

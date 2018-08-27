@@ -91,8 +91,6 @@ class PartsPanel extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  overlay: state.overlay
-})
+const mapStateToProps = state => ({})
 
 export default connect(mapStateToProps)(PartsPanel)

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
+import {setGallery} from '../actions/overlay';
+
 import PartCallouts from './PartCallouts';
 import {
   Carousel,
@@ -13,7 +17,7 @@ import {
   ).join("\n ")
 } */}
 
-export default class MobilePartsPanel extends Component {
+class MobilePartsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +32,7 @@ export default class MobilePartsPanel extends Component {
     this.onExited = this.onExited.bind(this);
     this.handleTouchStart = this.handleTouchStart.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    this.openGallery = this.openGallery.bind(this);
   }
   handleTouchStart(e) {
     e.stopPropagation()
@@ -66,7 +71,12 @@ export default class MobilePartsPanel extends Component {
     if (this.animating) return;
     this.setState({ activeIndex: newIndex });
   }
+  openGallery(e) {
+    e.stopPropagation()
+    this.props.dispatch(setGallery(this.props.handgunsGroup[e.target.id.slice(8)].part_gallery))
+  }
   render() {
+    console.log(this.props)
     const { activeIndex } = this.state;
     const handgunsGroup = this.props.handgunsGroup.slice(1);
     const slides = handgunsGroup.map((image, i) => (
@@ -85,11 +95,18 @@ export default class MobilePartsPanel extends Component {
           <h3>{image.part_label}</h3>
           {image.part_callouts.map((callout, i) => (
             <p
-              key={callout.callout}
+            key={callout.callout}
             >
               {callout.callout}
             </p>
           ))}
+          {image.part_gallery && (
+            <button
+              className="button--open-gallery"
+              onClick={this.openGallery}
+              id={`gallery-${i + 1}`}
+            ></button>
+          )}
         </div>
       </CarouselItem>
     ));
@@ -120,3 +137,7 @@ export default class MobilePartsPanel extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({})
+
+export default connect(mapStateToProps)(MobilePartsPanel)
