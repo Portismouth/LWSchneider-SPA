@@ -108,14 +108,13 @@ button:focus {
 }
 .button--open-gallery {
   border: none;
-  // width: 25px;
-  // height: 25px;
-  width: 18px;
-  height: 18px;
-  margin-top: 3px;
-  background-image: url("https://lws.impactpreview.com/wp-content/uploads/2018/08/blue-x-out.svg");
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  background-image: url("https://lws.impactpreview.com/wp-content/uploads/2018/08/Camera.svg");
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 10;
   cursor: pointer;
 }
 #BarrelButton {

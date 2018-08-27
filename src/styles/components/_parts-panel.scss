@@ -1,5 +1,5 @@
 div#SlideDiv {
-  left: calc(((100% - 700px) * .4) - 48px); // 100% is ~700px at 992px, 1000px at >1500px (trust me, it works)
+  left: calc(((100% - 700px) * .3) - 48px); // 100% is ~700px at 992px, 1000px at >1500px (trust me, it works)
   top: 5%;
 }
 div#FrameDiv {
