@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setImage, setVideo} from '../actions/overlay'
+import {setImage, setGallery, setVideo} from '../actions/overlay'
+
+import CapabilitiesPageCarousel from './CapabilitiesPageCarousel'
 
 class Overlay extends React.Component {
   constructor(props) {
@@ -9,10 +11,14 @@ class Overlay extends React.Component {
     this.state = {}
 
     this.closeImage = this.closeImage.bind(this)
+    this.closeGallery = this.closeGallery.bind(this)    
     this.closeVideo = this.closeVideo.bind(this)
   }
   closeImage() {
     this.props.dispatch(setImage(null))
+  }
+  closeGallery() {
+    this.props.dispatch(setGallery(null))
   }
   closeVideo() {
     this.props.dispatch(setVideo(null))
@@ -42,6 +48,23 @@ class Overlay extends React.Component {
           </div>
         </div>
       )
+    } else if (this.props.overlay.gallery) {
+      return (
+        <div
+          className="callout-image"
+          onClick={this.closeGallery}
+        >
+          <div
+            className="gallery-holder"
+            onClick={this.blank}
+          >
+            <CapabilitiesPageCarousel
+              galleryImages={this.props.overlay.gallery}
+            />
+            <div className="modal-controller yellow" onClick={this.closeGallery}></div>
+          </div>
+        </div>
+      )
     } else if (this.props.overlay.video) {
       return (
         <div
@@ -55,7 +78,7 @@ class Overlay extends React.Component {
               autoPlay
               controls
             ></video>
-            <div className="modal-controller"></div>
+            <div className="modal-controller yellow"></div>
           </div>
         </div>
       )

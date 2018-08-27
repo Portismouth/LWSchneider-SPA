@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
+import {setGallery} from '../actions/overlay';
+
 import PartCallouts from './PartCallouts';
 
-export default class PartsPanel extends Component {
+class PartsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +17,9 @@ export default class PartsPanel extends Component {
     this.setState({
       partsIndex: e.target.value
     });
+  };
+  openGallery = e => {
+    this.props.dispatch(setGallery(this.props.sportingRiflesGroup[e.target.id.slice(8)].part_gallery))
   };
   render() {
     const partsIndex = this.state.partsIndex;
@@ -49,6 +56,13 @@ export default class PartsPanel extends Component {
                 >
                   {image.part_label}
                 </button>
+                {image.part_gallery && this.state.partsIndex === image.part_label && (
+                  <button
+                    className="button--open-gallery"
+                    onClick={this.openGallery}
+                    id={`gallery-${i}`}
+                  ></button>
+                )}
               </div>
               <div className="row no-gutters">
                 <PartCallouts
@@ -81,3 +95,9 @@ export default class PartsPanel extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  overlay: state.overlay
+})
+
+export default connect(mapStateToProps)(PartsPanel)

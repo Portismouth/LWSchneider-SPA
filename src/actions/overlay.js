@@ -4,7 +4,14 @@ export const setImage = (image, options) => ({
   options: options || {}
 })
 
-export const setVideo = video => ({
+export const setGallery = (images, options) => ({
+  type: 'SET_GALLERY',
+  images,
+  options: options || {}
+})
+
+export const setVideo = (video, options) => ({
   type: 'SET_VIDEO',
-  video
+  video,
+  options: options || {}
 })
