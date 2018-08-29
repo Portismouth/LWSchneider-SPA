@@ -35,20 +35,21 @@ class HomePage extends React.Component {
   componentDidMount() {
     fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/120')
       .then(res => res.json())
-      .then(
-        result => {
-          console.log(result);
-          this.setState({
-            isLoaded: true,
-            assets: result.acf['home_panel_repeater']
-          });
-          let background = window.innerWidth < 576 ? result.acf['home_panel_repeater'][0].panel_image_mobile : result.acf['home_panel_repeater'][0].panel_image
-          this.props.dispatch(setBackground(background))
-        },
-        error => {
-          console.log(error);
-        }
-      );
+      .then(result => {
+        console.log(result);
+        this.setState({
+          isLoaded: true,
+          assets: result.acf['home_panel_repeater']
+        });
+        let target = window.innerWidth < 576 ? 'panel_image_mobile' : 'panel_image';
+        let backgrounds = result.acf['home_panel_repeater'].map(panel => panel[target])
+        this.props.dispatch(setBackground(backgrounds[0]))
+        return fetch(backgrounds[1])
+      })
+      .then(img => {
+        console.log(img)
+      })
+      .catch(err => console.error(err))
     this.props.dispatch(revertWindstop());
     if (this.props.panel.index === 0) {
       this.setState({buttonText: "Scroll"})
