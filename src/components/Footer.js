@@ -31,7 +31,7 @@ const Footer = () => (
             </div>
           </div>
         </div>
-        <div className="col-1 d-flex align-items-end">
+        <div className="col-1 d-flex align-items-center">
           <LinkedIn />
         </div>
         <div className="col-7">

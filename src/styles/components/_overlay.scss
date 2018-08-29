@@ -15,7 +15,8 @@
   max-height: calc(100% - 30px)
 }
 .callout-image .img-holder img {
-  max-width: calc(100vw - 30px)
+  max-width: calc(100vw - 30px);
+  max-height: calc(100vh - 30px)
 }
 
 .callout-image .gallery-holder {
