@@ -8,11 +8,12 @@ div#FrameDiv {
 }
 div#BarrelDiv {
   top: 0;
-  right: -6%;
+  right: calc(-6% - 12px);
 }
 @media screen and (max-width: 1199px) {
   div#BarrelDiv {
-    right: -64px
+    top: 45%;
+    right: 0
   }
 }
 div#ButtStockAssemblyDiv {
@@ -24,7 +25,12 @@ div#ButtStockAssemblyDiv {
 }
 div#FrontSightDiv {
   right: 4%;
-  top: 15%;
+  top: 26%;
+}
+@media screen and (max-width: 1125px) {
+  div#FrontSightDiv {
+    right: 8%
+  }
 }
 div#UpperReceiverDiv {
   right: 25%;
