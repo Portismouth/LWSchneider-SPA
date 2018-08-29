@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
+import { preload } from '../utility';
 
 //Component Imports
 import Panel from './Panel';
@@ -42,12 +42,9 @@ class HomePage extends React.Component {
           assets: result.acf['home_panel_repeater']
         });
         let target = window.innerWidth < 576 ? 'panel_image_mobile' : 'panel_image';
-        let backgrounds = result.acf['home_panel_repeater'].map(panel => panel[target])
-        this.props.dispatch(setBackground(backgrounds[0]))
-        return fetch(backgrounds[1])
-      })
-      .then(img => {
-        console.log(img)
+        let backgrounds = result.acf['home_panel_repeater'].map(panel => panel[target]);
+        this.props.dispatch(setBackground(backgrounds[0]));
+        preload(backgrounds, 1)
       })
       .catch(err => console.error(err))
     this.props.dispatch(revertWindstop());
