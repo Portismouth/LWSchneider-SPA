@@ -40,7 +40,7 @@ class PartsPanel extends Component {
           {image.part_label !== 'Main' && (
             <div
               id={image.part_label.replace(/ /g, '') + 'Div'}
-              className="col-3 position-absolute"
+              className="col-5 position-absolute"
               key={image.part_label + 'div'}
             >
               <div className="row no-gutters">

@@ -3,24 +3,28 @@
   height: 332px;
 }
 #capPageCarousel > div {
-  width: 500px;
-  // height: 281px;
+  background: white;
+  display: inline-block;
   height: auto;
   max-height: 333px;
-  background: #333;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   overflow: hidden;
+  // position: relative;
+  transition: all 0.3s ease-in-out;
+  width: 500px;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
 }
-#capPageCarousel > div > img {
-  height: 100%;
-  width: 100%;
+.parts-gallery-image {
+  height: 333px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-// #capPageCarousel > div.front:hover {
-//   transform: scale(1.05);
-// }
+#capPageCarousel > div > div > img {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  width: auto;
+}
 #capPageCarousel .magnify {
   transform: scale(2);
   max-width: 50%
@@ -37,14 +41,11 @@
   // background: none;
   // transition-duration: 0s
 }
-.parts-gallery-image + .modal-controller {
+.parts-gallery-image > .modal-controller {
   width: 25px;
   height: 25px !important;
   background-image: url("https://lws.impactpreview.com/wp-content/uploads/2018/08/Expand-Arrows.svg")
 }
-// @media screen and (min-width: 992px) and (max-width: 1420px) {
-//   .parts-gallery-image + .modal-controller {display: none}
-// }
 .click-shield {
   width: 100%;
   height: 100%;
