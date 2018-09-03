@@ -84,7 +84,7 @@ class CapabilitiesPageCarousel extends Component {
         <div
           className={
             i === frontItem
-              ? `col-8 col-lg-5 items front${this.state.magnify ? ' magnify' : ''}`
+              ? `${i} col-8 col-lg-5 items front${this.state.magnify ? ' magnify' : ''}`
               : i === leftItem
                 ? 'col-8 col-lg-5 items left'
                 : i === rightItem
@@ -93,13 +93,6 @@ class CapabilitiesPageCarousel extends Component {
           }
           key={i}
           id={i}
-          // onTouchEnd={
-          //   i === rightItem
-          //     ? this.handleSwapLeft
-          //     : i === leftItem
-          //       ? this.handleSwapRight
-          //       : function(){}
-          // }
           onClick={
             i === rightItem
               ? this.handleClickLeft
@@ -108,8 +101,15 @@ class CapabilitiesPageCarousel extends Component {
                 : function(){}
           }
         >
-          <img className="parts-gallery-image" src={image.gallery_image} alt="" />
-          {i === frontItem && (<div className="modal-controller" onClick={this.toggleMagnify}></div>)}
+          <div 
+            className="parts-gallery-image row no-gutters justify-content-center"
+            style={{
+              backgroundImage: 'url(' + image.gallery_image + ')', 
+            }}
+          >   
+            {/* <img className="parts-gallery-image" src={image.gallery_image} alt="" /> */}
+            {i === frontItem && (<div className="modal-controller" onClick={this.toggleMagnify}></div>)}
+          </div>
           {/* {this.state.magnify && i === frontItem ?
             <div
               className="callout-image"
