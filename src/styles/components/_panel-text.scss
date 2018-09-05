@@ -1,3 +1,8 @@
+@media (min-width: 1200px) {
+  .panel-text {
+    font-size: 16px !important;
+  }
+}
 .panel-text {
   color: $white;
   font-family: $Ashbury;
@@ -6,11 +11,6 @@
   line-height: 1.55vmax;
   margin-bottom: 2rem;
   text-align: center;
-}
-@media (min-width: 1440px) {
-  .panel-text {
-    font-size: 22px;
-  }
 }
 @media (max-width: 991px) {
   .panel-text {
