@@ -27,7 +27,7 @@
 }
 #capPageCarousel .magnify {
   transform: scale(2);
-  max-width: 50%
+  max-width: 50%;
 
   // width: 1000px;
   // height: auto;
@@ -44,7 +44,7 @@
 .parts-gallery-image > .modal-controller {
   width: 25px;
   height: 25px !important;
-  background-image: url("https://lws.impactpreview.com/wp-content/uploads/2018/08/Expand-Arrows.svg")
+  background-image: url('https://lws.impactpreview.com/wp-content/uploads/2018/08/Expand-Arrows.svg');
 }
 .click-shield {
   width: 100%;
@@ -84,17 +84,38 @@
 // Home panel carousel
 #capPageHomeCarousel .carousel {
   position: relative;
-  height: 32vh
+  height: 32vh;
 }
 .cap-carousel-img {
   height: 30vh;
   width: auto;
+}
+@media (max-width: 991px) {
+  #capPageHomeCarousel .carousel {
+    position: relative;
+    height: 16vh;
+  }
+  .cap-carousel-img {
+    height: 28vw;
+  }
 }
 @media (max-width: 576px) {
   #capPageCarousel {
     height: 150px;
     div {
       height: 150px;
+    }
+  }
+  #capPageHomeCarousel {
+    .carousel-indicators {
+      bottom: -35px;
+    }
+  }
+}
+@media (max-width: 320px) {
+  #capPageHomeCarousel {
+    .carousel-indicators {
+      bottom: -20px;
     }
   }
 }
