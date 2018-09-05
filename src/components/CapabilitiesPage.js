@@ -2,6 +2,7 @@ import React from 'react';
 // import _ from 'lodash';
 import { connect } from 'react-redux';
 import { scaleWindstop } from '../actions/windstop';
+import { preload } from '../utility';
 
 //Component Imports
 import CapabilitiesPageCarousel from './CapabilitiesPageCarousel';
@@ -40,6 +41,8 @@ class CapabilitiesPage extends React.Component {
           this.setState({
             assets: Object.values(baseResult)
           });
+          const mainCarImages = baseResult['capabilities_panel_1']['panel_images_for_carousel'].map(slide => slide['carousel_image']);
+          preload(mainCarImages, 1);
         },
         error => {
           console.log(error);

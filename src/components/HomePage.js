@@ -36,7 +36,6 @@ class HomePage extends React.Component {
     fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/120')
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         this.setState({
           isLoaded: true,
           assets: result.acf['home_panel_repeater']
@@ -44,7 +43,7 @@ class HomePage extends React.Component {
         let target = window.innerWidth < 576 ? 'panel_image_mobile' : 'panel_image';
         let backgrounds = result.acf['home_panel_repeater'].map(panel => panel[target]);
         this.props.dispatch(setBackground(backgrounds[0]));
-        preload(backgrounds, 1)
+        preload(backgrounds, 1);
       })
       .catch(err => console.error(err))
     this.props.dispatch(revertWindstop());
