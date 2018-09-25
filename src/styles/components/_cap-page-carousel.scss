@@ -85,10 +85,18 @@
 #capPageHomeCarousel .carousel {
   position: relative;
   height: 32vh;
+  width: 100%;
 }
 .cap-carousel-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 30vh;
-  width: auto;
+}
+#capPageHomeCarousel {
+  .carousel-indicators {
+    bottom: -20px;
+  }
 }
 @media (max-width: 991px) {
   #capPageHomeCarousel .carousel {
@@ -108,7 +116,7 @@
   }
   #capPageHomeCarousel {
     .carousel-indicators {
-      bottom: -35px;
+      bottom: -28px;
     }
   }
 }

@@ -67,7 +67,12 @@ export default class AboutPageCarousel extends Component {
         onExited={this.onExited}
         key={image.carousel_image}
       >
-        <img className="cap-carousel-img" src={image.carousel_image} alt="image" />
+        <div
+          className="cap-carousel-img"
+          style={{
+            backgroundImage: 'url(' + image.carousel_image + ')',
+          }}
+        />
       </CarouselItem>
     ));
     return (
@@ -83,7 +88,7 @@ export default class AboutPageCarousel extends Component {
               next={this.next}
               previous={this.previous}
               ride={'carousel'}
-              interval={2000}
+              interval={3000}
             >
               <CarouselIndicators items={slides} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
               {slides}
