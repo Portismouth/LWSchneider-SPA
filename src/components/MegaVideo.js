@@ -39,7 +39,7 @@ class MegaVideo extends React.Component {
             <video
               ref={this.player}
               onClick={this.blank}
-              poster="https://lwschneider.com/wp-content/themes/lws-theme/assets/img/VideoPreview.png"
+              poster="https://lwschneider.com//wp-content/themes/lws-theme/assets/img/VideoPreview.png"
               src={this.props.videoSrc}
               controls
             ></video>

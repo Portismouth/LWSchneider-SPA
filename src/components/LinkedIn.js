@@ -20,12 +20,12 @@ export default class LinkedIn extends Component {
         >
           {this.state.hover ? (
             <img
-              src="https://lws.impactpreview.com/wp-content/uploads/2018/06/linkenin-icon-onhover.svg"
+              src="/wp-content/uploads/2018/06/linkenin-icon-onhover.svg"
               alt=""
             />
           ) : (
             <img
-              src="https://lws.impactpreview.com/wp-content/uploads/2018/06/linkenin-icon.svg"
+              src="/wp-content/uploads/2018/06/linkenin-icon.svg"
               alt=""
             />
           )}

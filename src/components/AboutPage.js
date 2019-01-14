@@ -24,7 +24,7 @@ class AboutPage extends Component {
     this.props.dispatch(setPanel(0))
   }
   componentDidMount() {
-    fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/174')
+    fetch('/wp-json/wp/v2/pages/174')
       .then(res => res.json())
       .then(
         result => {

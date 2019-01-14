@@ -20,35 +20,42 @@
 // gotta make the title look good
 #lw-break {
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 @media screen and (min-width: 713px) {
   #lw-break {
-    width: 70%
+    width: 70%;
   }
 }
 @media screen and (min-width: 624px) and (max-width: 712px) {
   #lw-break {
-    width: 80%
+    width: 80%;
   }
 }
 @media screen and (min-width: 570px) and (max-width: 623px) {
   #lw-break {
-    width: 90%
+    width: 90%;
   }
 }
 @media screen and (min-width: 420px) and (max-width: 512px) {
   #lw-break {
-    width: 67%
+    width: 67%;
   }
 }
 @media screen and (min-width: 380px) and (max-width: 419px) {
   #lw-break {
-    width: 75%
+    width: 75%;
   }
 }
 @media screen and (min-width: 348px) and (max-width: 379px) {
   #lw-break {
-    width: 82%
+    width: 82%;
   }
+}
+#valuesVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }

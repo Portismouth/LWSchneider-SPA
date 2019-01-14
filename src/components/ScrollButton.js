@@ -18,7 +18,7 @@ const ScrollButton = props => (
       </div>
       }
       <img
-        src="https://lws.impactpreview.com/wp-content/uploads/2018/06/scroll-arrow.svg"
+        src="/wp-content/uploads/2018/06/scroll-arrow.svg"
         alt="arrow-down"
       />
       {props.arrowUp && 

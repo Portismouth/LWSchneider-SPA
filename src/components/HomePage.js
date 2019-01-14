@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { preload } from '../utility';
 
 //Component Imports
+import GunShowPromo from './GunShowPromo';
 import Panel from './Panel';
 import PanelContact from './PanelContact';
 import PanelLink from './PanelLink';
@@ -33,7 +34,7 @@ class HomePage extends React.Component {
     this.props.dispatch(setPanel(0))
   }
   componentDidMount() {
-    fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/120')
+    fetch('https://lws.impactpreview.com//wp-json/wp/v2/pages/120')
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -45,7 +46,7 @@ class HomePage extends React.Component {
         this.props.dispatch(setBackground(backgrounds[0]));
         preload(backgrounds, 1);
       })
-      .catch(err => console.error(err))
+      .catch(err => console.error(err));
     this.props.dispatch(revertWindstop());
     if (this.props.panel.index === 0) {
       this.setState({buttonText: "Scroll"})
@@ -166,10 +167,15 @@ class HomePage extends React.Component {
             : 'homepage-panel inactive'
         }
         key={i + 1}
-      > 
+      >
         {i === 0 ? (
           <div>
-            <PanelTitle 
+            <GunShowPromo
+              imageUrl={
+                'https://lws.impactpreview.com/wp-content/uploads/2019/01/shot-show-banner-1.png'
+              }
+            />
+            <PanelTitle
               colSpan={i === 0 ? 10 : i === 3 ? 6 : 4}
               panelTitle={asset.panel_title.split('.')[0] + '.'}
               titleId={`homePanel${i}`}
@@ -180,20 +186,17 @@ class HomePage extends React.Component {
               titleId={`homePanel${i}`}
             />
           </div>
-        ) : 
-          <PanelTitle 
+        ) : (
+          <PanelTitle
             colSpan={i === 0 ? 5 : i === 3 ? 6 : 4}
             panelTitle={asset.panel_title}
             titleId={`homePanel${i}`}
           />
-        }
+        )}
         {asset.carousel_images && (
           <HomePageCarousel images={asset.carousel_images} />
         )}
-        <PanelText 
-          colSpan={i === 5 ? 3 : 4} 
-          panelText={asset.panel_text}
-        />
+        <PanelText colSpan={i === 5 ? 3 : 4} panelText={asset.panel_text} />
         {/* if panel has link to another page */}
         {asset.link_out.button_text && (
           <PanelLink
@@ -204,14 +207,16 @@ class HomePage extends React.Component {
         {/* fullscreen video */}
         {asset.panel_video && (
           <div className="row mega-video justify-content-center">
-            <button id={`video-${i}`} className="button--link" onClick={this.openVideo}>
+            <button
+              id={`video-${i}`}
+              className="button--link"
+              onClick={this.openVideo}
+            >
               Take a Look Inside
             </button>
           </div>
         )}
-        {i === 5 && (
-          <PanelContact />
-        )}
+        {i === 5 && <PanelContact />}
       </Panel>
     ));
     return (

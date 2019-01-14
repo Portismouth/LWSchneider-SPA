@@ -24,7 +24,7 @@ class ValuesPage extends Component {
     this.props.dispatch(setPanel(0))
   }
   componentDidMount() {
-    fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/165')
+    fetch('/wp-json/wp/v2/pages/165')
       .then(res => res.json())
       .then(
         result => {
@@ -90,6 +90,26 @@ class ValuesPage extends Component {
         key={i + 1}
       >
         {i === 0 && (
+          (window.innerWidth > 991) 
+          ? (
+            <div>
+              <img id="valuesVideo" src="https://lwschneider.com//wp-content/themes/lws-theme/assets/videos/lws_header_v4.gif"/>
+                
+              <PanelTitle 
+                titleId={"valuesHomeTitle"}
+                colSpan={{
+                  xl: 8,
+                  lg: 10,
+                  md: 10
+                }}
+                panelTitle={asset.panel_title} 
+              />
+              <PanelText
+                colSpan={6}
+                panelText={asset.panel_text}
+              />
+            </div>
+          ) :
           <div>
             <ValuesPageHero imageSrc={asset.panel_image} />
             <PanelTitle

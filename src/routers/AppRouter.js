@@ -20,10 +20,10 @@ import CareersPage from '../components/CareersPage';
 const AppRouter = () => (
   <BrowserRouter>
     <div className="container-fluid">
-      <Logo imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" />
+      <Logo imageUrl="/wp-content/uploads/2018/06/lws-logo.svg" />
       <Navigation location={location} />
       <DynamicBackground />
-      <WindStop imageUrl="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg" />
+      <WindStop imageUrl="/wp-content/uploads/2018/06/windstop-overlay.svg" />
       <Switch location={location} >
         <Route path="/" component={HomePage} exact={true} />
         <Route path="/capabilities" component={CapabilitiesPage} />

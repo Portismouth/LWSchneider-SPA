@@ -16,7 +16,7 @@ class CareersPage extends Component {
     peopleImage: ''
   }
   componentDidMount() {
-    fetch('https://lws.impactpreview.com/wp-json/wp/v2/pages/292')
+    fetch('/wp-json/wp/v2/pages/292')
       .then(res => res.json())
       .then(
         result => {

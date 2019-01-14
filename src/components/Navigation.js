@@ -37,7 +37,7 @@ class Navigation extends Component {
               this.props.dispatch(setPanel(0))
             }}
           >
-            <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
+            <img id="logo" src="/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
           </div>
           :
           <NavLink 
@@ -48,22 +48,22 @@ class Navigation extends Component {
               this.props.dispatch(revertWindstop())
             }}
           >
-            <img id="logo" src="https://lws.impactpreview.com/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
+            <img id="logo" src="/wp-content/uploads/2018/06/lws-logo.svg" alt=""/>
           </NavLink>
         }
         <NavbarToggler 
           onClick={this.toggle} 
           style={{ 
           backgroundImage: this.state.isOpen 
-            ? 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/closemenu.svg)' 
-            : 'url(https://lws.impactpreview.com/wp-content/uploads/2018/07/hamburgermenu.svg)',
+            ? 'url(/wp-content/uploads/2018/07/closemenu.svg)' 
+            : 'url(/wp-content/uploads/2018/07/hamburgermenu.svg)',
             backgroundRepeat: "no-repeat" 
           }} 
         />
         <Collapse isOpen={this.state.isOpen} navbar>
           <div id="windStopNav">
             <img
-              src="https://lws.impactpreview.com/wp-content/uploads/2018/06/windstop-overlay.svg"
+              src="/wp-content/uploads/2018/06/windstop-overlay.svg"
               alt="turny-thing"
             />
           </div>
