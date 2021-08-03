@@ -13,7 +13,12 @@ class CareersPage extends Component {
     panelText: '',
     panelImage: '',
     jobListings: [],
-    peopleImage: ''
+    peopleImage: '',
+    careerHeader: '',
+    careerEmail: '',
+    careerEmailHref: '',
+    paraOne: '',
+    paraTwo: ''
   }
   componentDidMount() {
     fetch('/wp-json/wp/v2/pages/292')
@@ -26,7 +31,12 @@ class CareersPage extends Component {
             panelText: result.acf.panel_text,
             panelImage: result.acf.panel_image,
             jobListings: result.acf.open_positions,
-            peopleImage: result.acf.people_link_image
+            peopleImage: result.acf.people_link_image,
+            careerHeader: result.acf.career_contact_header,
+            careerEmail: result.acf.career_contact_email,
+            careerEmailHref: "mailto:" + result.acf.career_contact_email,
+            paraOne: result.acf.paragraph_one,
+            paraTwo: result.acf.paragraph_two,
           })
         },
         error => {
@@ -37,7 +47,7 @@ class CareersPage extends Component {
   }
   render() {
     const jobListings = this.state.jobListings.map((listing, i) => (
-      <div 
+      <div
         className={
           i === this.state.jobListings.length-1
           ? "job-listing border-top border-bottom py-1 py-lg-2"
@@ -45,13 +55,13 @@ class CareersPage extends Component {
         }
         key={i}
       >
-        <div 
+        <div
           className="row no-gutters">
           <p className="career-col-heading">
             {listing.position_title}
           </p>
         </div>
-        <div 
+        <div
           className="row no-gutters">
           <p className="listing-text">
             {listing.position_blurb}
@@ -64,13 +74,13 @@ class CareersPage extends Component {
         <Panel className="panel careers-panel">
           <PanelTitle
             colSpan={6}
-            panelTitle={this.state.panelTitle} 
+            panelTitle={this.state.panelTitle}
             titleId={"careersTitle"}
           />
           <PanelText
-            textId={"careersText"} 
-            colSpan={6} 
-            panelText={this.state.panelText} 
+            textId={"careersText"}
+            colSpan={6}
+            panelText={this.state.panelText}
           />
           <div className="row no-gutters justify-content-center">
             <div className="col-11 col-lg-8">
@@ -84,25 +94,18 @@ class CareersPage extends Component {
                 <div className="col-10 col-lg-4 pr-2 pr-lg-4">
                   <div className="row no-gutters mb-3">
                     <p className="career-col-heading">
-                      To apply, please email Jesse at:
+                      {this.state.careerHeader}
                     </p>
-                    <a className="careers-main-link" href="mailto:jessen@lwschneider.com">
-                      jessen@lwschneider.com
+                    <a className="careers-main-link" href={this.state.careerEmailHref}>
+                      {this.state.careerEmail}
                     </a>
                   </div>
                   <div className="row no-gutters">
                     <p className="career-col-text">
-                      Experienced candidates for these positions start at
-                      $13 up to $20 per hour, depending on skill level. We
-                      provide excellent benefits, including medical, dental
-                      and vision insurance, a matching 401K savings plan,
-                      free golf course membership, immediate vacation
-                      accrual, and the opportunity to earn additional paid
-                      time off through perfect attendance.
+                      {this.state.paraOne}
                     </p>
                     <p className="career-col-text">
-                      We’re also looking for college students for summer
-                      work!
+                      {this.state.paraTwo}
                     </p>
                   </div>
                 </div>
@@ -117,15 +120,14 @@ class CareersPage extends Component {
                       Through our partnership with Peoplelink, we recruit
                       individuals who are interested in a career path and
                       willing to learn. Please call Peoplelink directly at
-                      <a className="phone" href="tel:+815-875-3835"> 815-915-8739</a>, visit them at 102 South Main Street,
-                      Princeton, Illinois, or email <span className="career-email-span">
+                      <a className="phone" href="tel:+815-875-3835"> 815-915-8739</a> or email <span className="career-email-span">
                         <a href="mailto:kclevenger@peoplelinkstaffing.com">
-                          kclevenger@peoplelinkstaffing.com.
-                        </a> 
-                      </span> 
+                          Princeton@peoplelinkstaffing.com.
+                        </a>
+                      </span>
                     </p>
                   </div>
-                  <div 
+                  <div
                     className="row no-gutters justify-content-baseline"
                   >
                     <img className="people-link-image" src={this.state.peopleImage} alt="people-link-image"/>
